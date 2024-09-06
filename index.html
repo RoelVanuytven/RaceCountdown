@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race Event Countdown</title>
+    <link rel="stylesheet" href="RaceStyle.css">
+</head>
+<body>
+
+<div class="countdown">
+    <div id="countdown-text" class="countdown-text">00h 00m 00s</div>
+    <div id="next-session" class="next-session">Next session: None</div>
+</div>
+
+<!-- Tweede countdown -->
+<div class="countdown" id="second-countdown">
+    <div id="second-countdown-text" class="countdown-text">00h 00m 00s</div>
+    <div id="second-next-session" class="next-session">Next session: None</div>
+</div>
+
+
+<div class="table-container">
+    <table>
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Session</th>
+            <th>Length</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody id="sessions-table">
+        <!-- Rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+</div>
+
+<div class="footer">
+    <div class="footer-buttons">
+        <button id="delete-sessions-button" class="action-button">Delete all Sessions</button>
+        <button id="open-modal-button">Add Session</button>
+        <button id="open-file-button">Add Events</button>
+        <button id="export-csv-button" class="action-button">Export to CSV</button>
+        <input type="file" id="file-input" accept=".txt, .csv">
+    </div>
+    <div class="footer-powered">
+        Powered by drankbaron.be
+    </div>
+</div>
+
+<!-- Modal for adding a new session -->
+<div id="modal-overlay" class="modal-overlay"></div>
+<div id="modal" class="modal">
+    <button id="modal-close" class="modal-close">X</button>
+    <div class="modal-header">Add Session</div>
+    <div class="modal-body">
+        <form id="modal-form" class="modal-form">
+            <input type="date" id="date" required>
+            <input type="time" id="starttime" required>
+            <input type="time" id="endtime" required>
+            <input type="text" id="session" placeholder="Session description" required>
+            <button type="submit">Add Session</button>
+        </form>
+    </div>
+</div>
+
+<script src="RaceJava.js"></script>
+
+</body>
+</html>
