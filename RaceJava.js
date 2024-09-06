@@ -67,7 +67,6 @@ function updateCountdown() {
 setInterval(updateCountdown, 1000);
 populateTable();
 
-
 function populateTable() {
     const now = new Date();
     const tableBody = document.getElementById('sessions-table');
@@ -80,11 +79,10 @@ function populateTable() {
     tableBody.innerHTML = '';
 
     // Voor elke sessie weergeven in de tabel, ongeacht of de tijd al verstreken is
-    sessions.forEach(session => {
+    sessions.forEach((session, index) => {
         const startTime = new Date(`${session.date}T${session.starttime}:00`);
         const endTime = new Date(`${session.date}T${session.endtime}:00`);
 
-        // Toon alle sessies (optioneel kun je hier de controle op toekomstige sessies terugzetten)
         if (true) {
             if (session.date !== lastDate) {
                 const dateRow = document.createElement('tr');
@@ -111,34 +109,76 @@ function populateTable() {
             row.appendChild(lengthCell);
 
             const actionsCell = document.createElement('td');
+            actionsCell.style.display = 'flex'; // Zorg ervoor dat de knoppen in een flex-container staan
+            actionsCell.style.gap = '10px'; // Voeg ruimte toe tussen de knoppen
+
+            // Edit knop
+            const editButton = document.createElement('button');
+            editButton.classList.add('edit-button');
+            editButton.innerText = 'Edit';
+            editButton.onclick = () => {
+                showEditModal(session, index);
+            };
+            actionsCell.appendChild(editButton);
+
+            // Delete knop
             const deleteButton = document.createElement('button');
             deleteButton.classList.add('delete-button');
             deleteButton.innerText = 'Delete';
             deleteButton.onclick = () => {
-                row.remove();
-                const index = sessions.findIndex(s => s.date === session.date && s.starttime === session.starttime && s.session === session.session);
-                if (index > -1) {
-                    sessions.splice(index, 1);
-                    saveSessions(); // Opslaan van bijgewerkte sessies
-                }
+                showDeleteConfirmModal(session, row); // Toon de bevestigingsmodal
             };
             actionsCell.appendChild(deleteButton);
-            row.appendChild(actionsCell);
 
+            row.appendChild(actionsCell);
             tableBody.appendChild(row);
         }
     });
 }
 
+function showEditModal(session, index) {
+    document.getElementById('edit-modal-overlay').style.display = 'block';
+    document.getElementById('edit-modal').style.display = 'block';
+
+    // Vul de modal met de huidige gegevens van de sessie
+    document.getElementById('edit-date').value = session.date;
+    document.getElementById('edit-starttime').value = session.starttime;
+    document.getElementById('edit-endtime').value = session.endtime;
+    document.getElementById('edit-session').value = session.session;
+
+    document.getElementById('save-edit-button').onclick = () => {
+        const updatedDate = document.getElementById('edit-date').value;
+        const updatedStarttime = document.getElementById('edit-starttime').value;
+        const updatedEndtime = document.getElementById('edit-endtime').value;
+        const updatedSession = document.getElementById('edit-session').value;
+
+        if (updatedDate && updatedStarttime && updatedEndtime && updatedSession) {
+            sessions[index] = { date: updatedDate, starttime: updatedStarttime, endtime: updatedEndtime, session: updatedSession };
+            saveSessions(); // Sla de bijgewerkte sessies op
+            populateTable(); // Bijwerken van de tabel
+            closeEditModal(); // Sluit de bewerkingsmodal
+        }
+    };
+}
+
+function closeEditModal() {
+    document.getElementById('edit-modal-overlay').style.display = 'none';
+    document.getElementById('edit-modal').style.display = 'none';
+}
+
+document.getElementById('edit-modal-close').onclick = closeEditModal;
+
+// Functie om de huidige datum in te vullen in het datumveld van de modal
+function setCurrentDate() {
+    const today = new Date().toISOString().split('T')[0]; // Verkrijg de huidige datum in YYYY-MM-DD formaat
+    document.getElementById('date').value = today; // Stel de waarde van het datumveld in
+}
 
 function showModal() {
+    setCurrentDate(); // Vul de datum in voordat de modal wordt weergegeven
     document.getElementById('modal-overlay').style.display = 'block';
     document.getElementById('modal').style.display = 'block';
 }
-
-const today = new Date();
-const formattedDate = today.toISOString().split('T')[0];
-document.getElementById('date').value = formattedDate;
 
 function closeModal() {
     document.getElementById('modal-overlay').style.display = 'none';
@@ -220,12 +260,54 @@ function deleteAllSessions() {
 }
 
 document.getElementById('export-csv-button').onclick = exportToCSV;
-document.getElementById('delete-sessions-button').onclick = deleteAllSessions;
-
-setInterval(updateCountdown, 1000);
-populateTable();
+document.getElementById('delete-sessions-button').onclick = showConfirmModal; // Toon bevestigingsmodal voor alle sessies
 
 // Functie om sessies op te slaan in LocalStorage
 function saveSessions() {
     localStorage.setItem('sessions', JSON.stringify(sessions));
+}
+
+// Functie om de bevestigingsmodal voor alle sessies te tonen
+function showConfirmModal() {
+    document.getElementById('confirm-overlay').style.display = 'block';
+    document.getElementById('confirm-modal').style.display = 'block';
+}
+
+// Functie om de bevestigingsmodal voor alle sessies te sluiten
+function closeConfirmModal() {
+    document.getElementById('confirm-overlay').style.display = 'none';
+    document.getElementById('confirm-modal').style.display = 'none';
+}
+
+// Voeg event listeners toe voor de bevestigingsmodal knoppen
+document.getElementById('confirm-clear-sessions').onclick = function() {
+    deleteAllSessions(); // Verwijder alle sessies
+    closeConfirmModal(); // Sluit de bevestigingsmodal
+};
+
+document.getElementById('confirm-cancel').onclick = closeConfirmModal;
+document.getElementById('confirm-modal-close').onclick = closeConfirmModal;
+
+function showDeleteConfirmModal(session, row) {
+    document.getElementById('confirm-delete-overlay').style.display = 'block';
+    document.getElementById('confirm-delete-modal').style.display = 'block';
+
+    document.getElementById('confirm-delete-yes').onclick = function() {
+        const index = sessions.findIndex(s => s.date === session.date && s.starttime === session.starttime && s.session === session.session);
+        if (index > -1) {
+            sessions.splice(index, 1);
+            saveSessions(); // Opslaan van bijgewerkte sessies
+            populateTable(); // Bijwerken van de tabel
+        }
+        closeDeleteConfirmModal(); // Sluit de bevestigingsmodal
+    };
+
+    // Zorg ervoor dat de sluitknop van de delete-modal correct is ingesteld
+    document.getElementById('confirm-delete-no').onclick = closeDeleteConfirmModal;
+    document.getElementById('confirm-modal-close-session').onclick = closeDeleteConfirmModal;
+}
+
+function closeDeleteConfirmModal() {
+    document.getElementById('confirm-delete-overlay').style.display = 'none';
+    document.getElementById('confirm-delete-modal').style.display = 'none';
 }

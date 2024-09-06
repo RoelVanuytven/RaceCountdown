@@ -1,125 +1,103 @@
 /* Kleuren Definities */
 :root {
     --color-background: #1a1a1a; /* Achtergrondkleur van de pagina */
-    --color-text: #f4f4f4; /* Kleur van de tekst */
     --color-primary: #ff1a1a; /* Primaire kleur (rood) */
     --color-secondary: #ffcc00; /* Secundaire kleur (geel) */
     --color-dark: #333; /* Donkere achtergrondkleur voor secties */
     --color-light: #fff; /* Witte kleur voor tekst en achtergrond */
     --color-hover: #e60000; /* Hoverkleur voor knoppen */
-    --color-border: #444; /* Kleur van de randen en tabelborders */
     --color-row-hover: #555; /* Achtergrondkleur van rijen bij hover in tabellen */
-    --color-modal-background: #fff; /* Achtergrondkleur van de modal */
-    --color-modal-text: #333; /* Tekstkleur in de modal */
 }
 
 /* Algemene Stijlen */
 body {
-    font-family: 'Arial', sans-serif; /* Fonttype voor de hele pagina */
+    font-family: 'Arial', sans-serif; /* Lettertype voor de hele pagina */
     background-color: var(--color-background); /* Achtergrondkleur van de pagina */
-    color: var(--color-text); /* Kleur van de tekst */
-    margin: 0; /* Verwijder standaard marge */
-    padding: 0; /* Verwijder standaard padding */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Flex items verticaal plaatsen */
+    color: var(--color-light); /* Kleur van de tekst */
+    margin: 0; /* Verwijder de standaard marge */
+    padding: 0; /* Verwijder de standaard padding */
+    display: flex; /* Flexbox voor de uitlijning */
+    flex-direction: column; /* Verander de flex richting naar kolom */
     align-items: center; /* Centreer items horizontaal */
     justify-content: center; /* Centreer items verticaal */
-    min-height: 100vh; /* Minimaal hoogte van de viewport */
-}
-
-.header {
-    width: 100%; /* Volledige breedte van de container */
-    padding: 30px; /* Ruimte binnen de header */
-    text-align: center; /* Tekst centreren */
-    background-color: var(--color-primary); /* Achtergrondkleur van de header */
-    color: var(--color-light); /* Kleur van de tekst in de header */
-    font-size: 3em; /* Grootte van de headertekst */
-    font-weight: bold; /* Vetgedrukte tekst */
-    text-transform: uppercase; /* Hoofdletters voor de tekst */
-    letter-spacing: 3px; /* Ruimte tussen de letters */
-    display: flex; /* Flexbox layout */
-    justify-content: center; /* Centreer items horizontaal */
-    align-items: center; /* Centreer items verticaal */
+    min-height: 100vh; /* Zorg dat de body ten minste 100% van de viewport hoogte heeft */
 }
 
 .left-align {
-    margin-right: 20px; /* Ruimte aan de rechterkant */
-    margin-left: 30px; /* Ruimte aan de linkerkant */
-}
-
-.right-align {
-    margin-left: 20px; /* Ruimte aan de linkerkant */
+    margin-right: 20px; /* Voeg rechter marge toe */
+    margin-left: 20px; /* Voeg linker marge toe */
 }
 
 .countdown {
-    width: 80%; /* Zorg ervoor dat de breedte van de countdown 80% van het scherm is */
-    max-width: 1200px; /* Maximaal toegestane breedte van de countdown */
-    margin: 20px auto; /* Centreer de countdown horizontaal met automatische marges aan beide zijden */
-    padding: 60px; /* Binnenruimte rondom de countdown */
-    background-color: var(--color-dark); /* Achtergrondkleur van de countdown */
+    width: 82%; /* Breedte van de countdown sectie */
+    margin: 20px auto; /* Voeg marge toe rondom en centreer horizontaal */
+    padding: 60px; /* Voeg padding toe rondom */
+    background-color: var(--color-dark); /* Achtergrondkleur van de countdown sectie */
     border: 4px solid var(--color-primary); /* Randkleur en dikte */
-    border-radius: 10px; /* Hoekradius van de rand */
-    box-shadow: 0px 0px 20px 5px rgba(255, 26, 26, 0.5); /* Schaduw van de countdown */
-    font-size: 0.8rem; /* Lettergrootte van de tekst */
-    text-align: center; /* Tekst centreren */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Flex items verticaal plaatsen */
-    justify-content: center; /* Centreer items verticaal */
-    align-items: center; /* Centreer items horizontaal */
+    border-radius: 10px; /* Ronde hoeken */
+    box-shadow: 0px 0px 20px 5px rgba(255, 26, 26, 0.5); /* Schaduw rondom */
+    font-size: 0.8rem; /* Lettergrootte van de countdown tekst */
+    text-align: center; /* Centreer de tekst */
+    display: flex; /* Flexbox voor de layout */
+    flex-direction: column; /* Flex richting naar kolom */
+    justify-content: center; /* Centreer de inhoud verticaal */
+    align-items: center; /* Centreer de inhoud horizontaal */
 }
 
 .countdown-text {
-    font-weight: bold; /* Vetgedrukte tekst */
-    color: var(--color-secondary); /* Kleur van de countdown-tekst */
-    font-size: 6em; /* Grote tekstgrootte voor countdown */
+    font-weight: bold; /* Maak de tekst vet */
+    color: var(--color-secondary); /* Kleur van de countdown tekst */
+    font-size: 6em; /* Vergroot de lettergrootte */
 }
 
 .next-session {
-    margin-top: 10px; /* Ruimte tussen countdown en sessiebeschrijving */
-    color: var(--color-secondary); /* Kleur van de sessiebeschrijving */
-    font-size: 4em; /* Grote tekstgrootte voor sessiebeschrijving */
-    white-space: pre-line; /* Zorgt ervoor dat tekst op een nieuwe regel begint */
-    font-weight: bold; /* Vetgedrukte tekst */
+    margin-top: 10px; /* Voeg bovenmarge toe */
+    color: var(--color-secondary); /* Kleur van de tekst voor de volgende sessie */
+    font-size: 4em; /* Vergroot de lettergrootte */
+    white-space: pre-line; /* Houd de witruimtes zoals in de HTML */
+    font-weight: bold; /* Maak de tekst vet */
 }
 
 .table-container {
-    width: 90%; /* Breedte van de tabelcontainer */
-    margin-top: 10px; /* Ruimte boven de tabel */
+    width: 90%; /* Breedte van de tabel container */
+    margin-top: 10px; /* Voeg bovenmarge toe */
 }
 
 table {
-    width: 100%; /* Volledige breedte van de tabel */
-    border-collapse: collapse; /* Verwijder dubbele randen */
+    width: 100%; /* Maak de tabel full-width */
+    border-collapse: collapse; /* Verwijder ruimte tussen de tabelcellen */
     background-color: var(--color-dark); /* Achtergrondkleur van de tabel */
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); /* Schaduw van de tabel */
-    border-radius: 10px; /* Hoekradius van de tabel */
-    overflow: hidden; /* Verwijder overloop */
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); /* Schaduw rondom de tabel */
+    border-radius: 10px; /* Ronde hoeken van de tabel */
+    overflow: hidden; /* Verberg overloop van inhoud */
 }
 
 th, td {
-    padding: 20px; /* Binnenruimte van cellen */
-    border-bottom: 1px solid var(--color-border); /* Onderkantrand van cellen */
-    text-align: left; /* Tekst uitlijnen aan de linkerkant */
-    font-size: 1.5em; /* Lettergrootte van de cellen */
+    padding: 20px; /* Voeg padding toe aan de cellen */
+    border-bottom: 1px solid var(--color-dark); /* Onderkantrand van de cellen */
+    text-align: left; /* Tekst uitlijnen naar links */
+    font-size: 1.5em; /* Vergroot de lettergrootte */
 }
 
 th {
-    background-color: var(--color-primary); /* Achtergrondkleur van tabelkoppen */
-    color: var(--color-light); /* Kleur van de tekst in tabelkoppen */
-    text-transform: uppercase; /* Hoofdletters voor de tekst in tabelkoppen */
+    background-color: var(--color-primary); /* Achtergrondkleur van de header cellen */
+    color: var(--color-light); /* Kleur van de tekst in de header cellen */
+    text-transform: uppercase; /* Zet de tekst in hoofdletters */
+    font-size: 2rem;
 }
 
 td {
-    color: var(--color-text); /* Kleur van de tekst in cellen */
+    color: var(--color-light); /* Kleur van de tekst in de cellen */
+    font-size: 2rem;
 }
 
 .date-header {
-    background-color: var(--color-secondary); /* Achtergrondkleur van datumkoppen */
-    text-align: center; /* Tekst centreren */
-    font-weight: bold; /* Vetgedrukte tekst */
-    padding: 20px; /* Binnenruimte */
-    color: var(--color-primary); /* Kleur van de tekst in datumkoppen */
-    font-size: 1.8em; /* Grote tekstgrootte voor datumkoppen */
+    background-color: var(--color-secondary); /* Achtergrondkleur van datumrijen */
+    text-align: center; /* Centreer de tekst */
+    font-weight: bold; /* Maak de tekst vet */
+    padding: 20px; /* Voeg padding toe rondom */
+    color: var(--color-primary); /* Kleur van de tekst */
+    font-size: 2em; /* Vergroot de lettergrootte */
 }
 
 tr:nth-child(even) {
@@ -127,105 +105,114 @@ tr:nth-child(even) {
 }
 
 tr:hover {
-    background-color: var(--color-row-hover); /* Achtergrondkleur bij hover */
+    background-color: var(--color-row-hover); /* Achtergrondkleur van rijen bij hover */
 }
 
 .footer {
-    margin-top: 30px; /* Ruimte boven de footer */
-    padding: 20px; /* Binnenruimte van de footer */
-    width: 100%; /* Volledige breedte van de footer */
-    text-align: center; /* Tekst centreren */
+    margin-top: 30px; /* Voeg bovenmarge toe */
+    padding: 20px; /* Voeg padding toe rondom */
+    width: 100%; /* Maak de footer full-width */
+    text-align: center; /* Centreer de tekst */
     background-color: var(--color-dark); /* Achtergrondkleur van de footer */
     color: var(--color-secondary); /* Kleur van de tekst in de footer */
-    font-size: 1.5em; /* Lettergrootte van de footertekst */
+    font-size: 2rem; /* Vergroot de lettergrootte */
 }
 
 .footer-buttons {
-    margin-bottom: 10px; /* Ruimte tussen knoppen en "Powered by" tekst */
+    margin-bottom: 10px; /* Voeg ondermarge toe */
 }
 
 .footer-powered {
-    font-size: 1.2em; /* Vergrote lettergrootte voor de "Powered by" tekst */
-    color: var(--color-secondary); /* Kleur van de tekst in de "Powered by" sectie */
-    margin-top: 10px; /* Ruimte boven de "Powered by" tekst */
+    font-size: 1.2em; /* Vergroot de lettergrootte van powered tekst */
+    color: var(--color-secondary); /* Kleur van de powered tekst */
+    margin-top: 15px; /* Voeg bovenmarge toe */
 }
 
-.action-button,.delete-button, .modal-close, #open-modal-button, #open-file-button {
-    background-color: var(--color-primary); /* Achtergrondkleur van knoppen */
-    color: var(--color-light); /* Kleur van de tekst op knoppen */
-    border: none; /* Geen rand om knoppen */
-    border-radius: 5px; /* Hoekradius van knoppen */
-    padding: 15px; /* Binnenruimte van knoppen */
-    cursor: pointer; /* Cursor verandert in pointer bij hover */
-    font-size: 1.2em; /* Lettergrootte van knoppen */
+.action-buttons {
+    display: flex; /* Flexbox voor de knoppen */
+    gap: 10px; /* Voeg ruimte toe tussen de knoppen */
 }
 
-.action-button,.delete-button:hover, .modal-close:hover, #open-modal-button:hover, #open-file-button:hover {
-    background-color: var(--color-hover); /* Achtergrondkleur van knoppen bij hover */
+.edit-button, .action-button, .delete-button, .modal-close, #open-modal-button, #open-file-button {
+    background-color: var(--color-primary); /* Achtergrondkleur van de knoppen */
+    color: var(--color-light); /* Kleur van de tekst op de knoppen */
+    border: none; /* Verwijder de rand */
+    border-radius: 5px; /* Ronde hoeken van de knoppen */
+    padding: 15px; /* Voeg padding toe rondom */
+    cursor: pointer; /* Verander de cursor naar pointer */
+    font-size: 1.2em; /* Vergroot de lettergrootte */
+}
+
+.edit-button:hover, .action-button:hover, .delete-button:hover, .modal-close:hover, #open-modal-button:hover, #open-file-button:hover {
+    background-color: var(--color-hover); /* Hoverkleur van de knoppen */
 }
 
 .modal {
-    display: none; /* Modal standaard verborgen */
-    position: fixed; /* Modal op een vaste positie */
-    top: 50%; /* Verticale positie van modal */
-    left: 50%; /* Horizontale positie van modal */
-    transform: translate(-50%, -50%); /* Centreer modal */
+    display: none; /* Verberg de modal standaard */
+    position: fixed; /* Positioneer de modal vast op het scherm */
+    top: 50%; /* Zet de modal in het midden van het scherm van boven naar beneden */
+    left: 50%; /* Zet de modal in het midden van het scherm van links naar rechts */
+    transform: translate(-50%, -50%); /* Centreer de modal horizontaal en verticaal */
     width: 90%; /* Breedte van de modal */
     max-width: 800px; /* Maximale breedte van de modal */
-    background-color: var(--color-modal-background); /* Achtergrondkleur van de modal */
-    color: var(--color-modal-text); /* Kleur van de tekst in de modal */
-    border-radius: 10px; /* Hoekradius van de modal */
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); /* Schaduw van de modal */
+    background-color: var(--color-light); /* Achtergrondkleur van de modal */
+    color: var(--color-background); /* Tekstkleur in de modal */
+    border-radius: 10px; /* Ronde hoeken van de modal */
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); /* Schaduw rondom de modal */
     z-index: 1000; /* Zet de modal boven andere elementen */
-    padding: 40px; /* Binnenruimte van de modal */
-    box-sizing: border-box; /* Zorg ervoor dat padding en border inbegrepen zijn in de breedte */
-    font-size: 1.5em; /* Lettergrootte van de tekst in de modal */
+    padding: 40px; /* Voeg padding toe rondom */
+    box-sizing: border-box; /* Zorg ervoor dat padding en border bij de breedte en hoogte worden geteld */
+    font-size: 1.5em; /* Vergroot de lettergrootte in de modal */
 }
 
 .modal-overlay {
-    display: none; /* Overlay standaard verborgen */
-    position: fixed; /* Overlay op een vaste positie */
-    top: 0; /* Overlay bovenaan de pagina */
-    left: 0; /* Overlay aan de linkerkant van de pagina */
-    width: 100%; /* Volledige breedte van de pagina */
-    height: 100%; /* Volledige hoogte van de pagina */
-    background-color: rgba(0, 0, 0, 0.5); /* Achtergrondkleur van de overlay */
+    display: none; /* Verberg de overlay standaard */
+    position: fixed; /* Positioneer de overlay vast op het scherm */
+    top: 0; /* Zet de overlay aan de bovenkant van het scherm */
+    left: 0; /* Zet de overlay aan de linkerkant van het scherm */
+    width: 100%; /* Maak de overlay full-width */
+    height: 100%; /* Maak de overlay full-height */
+    background-color: rgba(0, 0, 0, 0.5); /* Achtergrondkleur van de overlay met transparantie */
     z-index: 999; /* Zet de overlay onder de modal */
 }
 
 .modal-header {
-    font-size: 2em; /* Lettergrootte van de header in de modal */
-    margin-bottom: 20px; /* Ruimte onder de modal-header */
+    font-size: 2rem; /* Vergroot de lettergrootte van de modal header */
+    margin-bottom: 20px; /* Voeg ondermarge toe */
+    position: relative; /* Zet de positie naar relatieve zodat kinderen absoluut gepositioneerd kunnen worden */
 }
 
 .modal-body {
-    margin-bottom: 30px; /* Ruimte onder de modal-body */
+    display: flex; /* Flexbox voor de modal body */
+    flex-direction: column; /* Flex richting naar kolom */
+    align-items: center; /* Centreer items horizontaal */
 }
 
-.modal-form input, .modal-form textarea {
-    width: calc(100% - 20px); /* Breedte van input- en textarea-elementen */
-    margin-bottom: 15px; /* Ruimte onder elk formulier element */
-    padding: 15px; /* Binnenruimte van formulier elementen */
-    border: 1px solid #ddd; /* Randkleur van formulier elementen */
-    border-radius: 5px; /* Hoekradius van formulier elementen */
-    box-sizing: border-box; /* Zorg ervoor dat padding en border inbegrepen zijn in de breedte */
-    font-size: 1.2em; /* Lettergrootte van formulier elementen */
+.modal-body input[type="date"],.modal-body input[type="time"],.modal-body input[type="text"] {
+    width: 100%; /* Zorg dat inputs de breedte van de modal gebruiken */
+    max-width: 800px; /* Stel een maximale breedte in voor inputs */
+    padding: 15px; /* Voeg padding toe rondom de inputs */
+    font-size: 1.5em; /* Vergroot de tekst in de inputs */
+    border-radius: 5px; /* Ronde hoeken van de inputs */
+    border: 1px solid var(--color-dark); /* Randkleur van de inputs */
+    box-sizing: border-box; /* Zorg ervoor dat padding en border bij de breedte en hoogte worden geteld */
 }
 
-.modal-form button {
-    background-color: var(--color-primary); /* Achtergrondkleur van knoppen in de modal */
-    color: var(--color-light); /* Kleur van de tekst op knoppen in de modal */
-    border: none; /* Geen rand om knoppen in de modal */
-    border-radius: 5px; /* Hoekradius van knoppen in de modal */
-    padding: 15px; /* Binnenruimte van knoppen in de modal */
-    cursor: pointer; /* Cursor verandert in pointer bij hover */
-    font-size: 1.2em; /* Lettergrootte van knoppen in de modal */
+.modal-body button {
+    background-color: var(--color-primary); /* Achtergrondkleur van de knoppen */
+    color: var(--color-light); /* Kleur van de tekst op de knoppen */
+    border: none; /* Verwijder de rand */
+    border-radius: 5px; /* Ronde hoeken van de knoppen */
+    padding: 15px 30px; /* Vergroot de padding van de knoppen */
+    cursor: pointer; /* Verander de cursor naar pointer */
+    font-size: 1.5em; /* Vergroot de tekstgrootte van de knoppen */
+    margin: 10px; /* Voeg marge toe rondom de knoppen */
 }
 
-.modal-form button:hover {
-    background-color: var(--color-hover); /* Achtergrondkleur van knoppen in de modal bij hover */
+.modal-body button:hover {
+    background-color: var(--color-hover); /* Hoverkleur van de knoppen */
 }
 
 #file-input {
-    display: none; /* Bestand input-element standaard verborgen */
+    display: none; /* Verberg het file input element */
 }
