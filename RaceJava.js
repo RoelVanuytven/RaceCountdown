@@ -1,5 +1,23 @@
-const sessions = JSON.parse(localStorage.getItem('sessions')) || []; // Haal opgeslagen sessies op uit LocalStorage, of initialiseer een lege array
-let lastChosenDate = localStorage.getItem('lastChosenDate') || ''; // Sla de laatst gekozen datum op
+let sessions = JSON.parse(localStorage.getItem('sessions'));
+
+// Als er geen sessies in localStorage zijn, gebruik de standaard sessies
+if (!sessions || sessions.length === 0) {
+    sessions = [
+        { date: '2024-09-20', starttime: '09:00', endtime: '12:00', session: 'Paying Practice' },
+        { date: '2024-09-20', starttime: '14:30', endtime: '15:30', session: 'Drivers Briefing' },
+        { date: '2024-09-20', starttime: '16:00', endtime: '17:00', session: 'Non Qualifying Practice' },
+        { date: '2024-09-21', starttime: '09:10', endtime: '09:55', session: 'Qualifying' },
+        { date: '2024-09-22', starttime: '11:00', endtime: '12:00', session: 'Race 1' },
+        { date: '2024-09-22', starttime: '14:15', endtime: '15:15', session: 'Race 2' },
+        { date: '2024-09-22', starttime: '16:40', endtime: '17:40', session: 'Race 3' }
+    ];
+
+    // Sla de standaard sessies op in localStorage voor toekomstige referentie
+    localStorage.setItem('sessions', JSON.stringify(sessions));
+}
+
+let lastChosenDate = localStorage.getItem('lastChosenDate') || '';
+
 // Haal opgeslagen sessies op uit LocalStorage, of initialiseer een lege array
 function updateCountdown() {
     const now = new Date();
