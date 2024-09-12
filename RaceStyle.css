@@ -96,7 +96,7 @@ td {
     font-weight: bold; /* Maak de tekst vet */
     padding: 10px; /* Voeg padding toe rondom */
     color: var(--color-primary); /* Kleur van de tekst */
-    font-size: 0.8em; /* Vergroot de lettergrootte */
+    font-size: 0.7em; /* Vergroot de lettergrootte */
 }
 
 tr:nth-child(even) {
@@ -145,9 +145,9 @@ tr:hover {
     color: var(--color-light); /* Kleur van de tekst op de knoppen */
     border: none; /* Verwijder de rand */
     border-radius: 5px; /* Ronde hoeken van de knoppen */
-    padding: 15px; /* Voeg padding toe rondom */
+    padding: 8px; /* Voeg padding toe rondom */
     cursor: pointer; /* Verander de cursor naar pointer */
-    font-size: 1em; /* Vergroot de lettergrootte */
+    font-size: 0.8em; /* Vergroot de lettergrootte */
 }
 
 .edit-button:hover, .action-button:hover, .delete-button:hover, .modal-close:hover, #open-modal-button:hover, #open-file-button:hover {
@@ -169,7 +169,7 @@ tr:hover {
     z-index: 1000; /* Zet de modal boven andere elementen */
     padding: 40px; /* Voeg padding toe rondom */
     box-sizing: border-box; /* Zorg ervoor dat padding en border bij de breedte en hoogte worden geteld */
-    font-size: 1.5em; /* Vergroot de lettergrootte in de modal */
+    font-size: 0.6em; /* Vergroot de lettergrootte in de modal */
 }
 
 .modal-overlay {
@@ -184,7 +184,7 @@ tr:hover {
 }
 
 .modal-header {
-    font-size: 2rem; /* Vergroot de lettergrootte van de modal header */
+    font-size: 1rem; /* Vergroot de lettergrootte van de modal header */
     margin-bottom: 20px; /* Voeg ondermarge toe */
     position: relative; /* Zet de positie naar relatieve zodat kinderen absoluut gepositioneerd kunnen worden */
 }
@@ -210,9 +210,9 @@ tr:hover {
     color: var(--color-light); /* Kleur van de tekst op de knoppen */
     border: none; /* Verwijder de rand */
     border-radius: 5px; /* Ronde hoeken van de knoppen */
-    padding: 15px 30px; /* Vergroot de padding van de knoppen */
+    padding: 10px 30px; /* Vergroot de padding van de knoppen */
     cursor: pointer; /* Verander de cursor naar pointer */
-    font-size: 1.5em; /* Vergroot de tekstgrootte van de knoppen */
+    font-size: 1em; /* Vergroot de tekstgrootte van de knoppen */
     margin: 10px; /* Voeg marge toe rondom de knoppen */
 }
 
@@ -244,6 +244,16 @@ tr:hover {
         margin-bottom: 1px; /* Voeg ondermarge toe */
         font-size: 1.2em;
     }
+    .modal {
+        font-size: 1.2em; /* Vergroot de lettergrootte in de modal */
+    }
+    .modal-header {
+        font-size: 2rem; /* Vergroot de lettergrootte van de modal header */
+    }
+    .modal-body button {
+        font-size: 1.5em; /* Vergroot de tekstgrootte van de knoppen */
+        padding: 15px 30px; /* Vergroot de padding van de knoppen */
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -257,7 +267,7 @@ tr:hover {
         font-size: 4em;
     }
     th, td {
-        padding: 20px;
+        padding: 10px;
         font-size: 2em;
     }
     .footer {
@@ -266,5 +276,19 @@ tr:hover {
     .footer-buttons {
         margin-bottom: 1px; /* Voeg ondermarge toe */
         font-size: 1em;
+    }
+    .edit-button, .action-button, .delete-button, .modal-close, #open-modal-button, #open-file-button {
+        padding: 10px; /* Voeg padding toe rondom */
+        font-size: 0.8em; /* Vergroot de lettergrootte */
+    }
+    .modal {
+        font-size: 1.2em; /* Vergroot de lettergrootte in de modal */
+    }
+    .modal-header {
+        font-size: 2rem; /* Vergroot de lettergrootte van de modal header */
+    }
+    .modal-body button {
+        font-size: 1.5em; /* Vergroot de tekstgrootte van de knoppen */
+        padding: 15px 30px; /* Vergroot de padding van de knoppen */
     }
 }

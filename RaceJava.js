@@ -88,69 +88,109 @@ function populateTable() {
     const tableBody = document.getElementById('sessions-table');
     let lastDate = '';
 
+    // Filter de sessies om alleen de sessies die nog niet afgelopen zijn weer te geven
+    const upcomingSessions = sessions.filter(session => {
+        const endTime = new Date(`${session.date}T${session.endtime}:00`);
+        return endTime > now;
+    });
+
+    // Als er geen komende sessies zijn, geef een melding weer in de tabel
+    if (upcomingSessions.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="5">No upcoming sessions</td></tr>';
+        return;
+    }
+
     // Sorteren op datum en tijd
-    sessions.sort((a, b) => new Date(`${a.date}T${a.starttime}:00`) - new Date(`${b.date}T${b.starttime}:00`));
+    upcomingSessions.sort((a, b) => new Date(`${a.date}T${a.starttime}:00`) - new Date(`${b.date}T${b.starttime}:00`));
 
     // Leeg de tabel eerst
     tableBody.innerHTML = '';
 
-    // Voor elke sessie weergeven in de tabel, ongeacht of de tijd al verstreken is
-    sessions.forEach((session, index) => {
+    // Toon de gefilterde sessies
+    upcomingSessions.forEach((session, index) => {
         const startTime = new Date(`${session.date}T${session.starttime}:00`);
         const endTime = new Date(`${session.date}T${session.endtime}:00`);
 
-        if (true) {
-            if (session.date !== lastDate) {
-                const dateRow = document.createElement('tr');
-                const dateCell = document.createElement('td');
-                dateCell.setAttribute('colspan', '6');
-                dateCell.classList.add('date-header');
-                dateCell.innerText = session.date;
-                dateRow.appendChild(dateCell);
-                tableBody.appendChild(dateRow);
-                lastDate = session.date;
-            }
-
-            const row = document.createElement('tr');
-            Object.values(session).forEach(value => {
-                const cell = document.createElement('td');
-                cell.innerText = value;
-                row.appendChild(cell);
-            });
-
-            const lengthCell = document.createElement('td');
-            const length = new Date(endTime - startTime);
-            const lengthString = `${length.getUTCHours()}:${length.getUTCMinutes().toString().padStart(2, '0')}`;
-            lengthCell.innerText = lengthString;
-            row.appendChild(lengthCell);
-
-            const actionsCell = document.createElement('td');
-            actionsCell.style.display = 'flex'; // Zorg ervoor dat de knoppen in een flex-container staan
-            actionsCell.style.gap = '10px'; // Voeg ruimte toe tussen de knoppen
-
-            // Edit knop
-            const editButton = document.createElement('button');
-            editButton.classList.add('edit-button');
-            editButton.innerText = 'Edit';
-            editButton.onclick = () => {
-                showEditModal(session, index);
-            };
-            actionsCell.appendChild(editButton);
-
-            // Delete knop
-            const deleteButton = document.createElement('button');
-            deleteButton.classList.add('delete-button');
-            deleteButton.innerText = 'Delete';
-            deleteButton.onclick = () => {
-                showDeleteConfirmModal(session, row); // Toon de bevestigingsmodal
-            };
-            actionsCell.appendChild(deleteButton);
-
-            row.appendChild(actionsCell);
-            tableBody.appendChild(row);
+        if (session.date !== lastDate) {
+            const dateRow = document.createElement('tr');
+            const dateCell = document.createElement('td');
+            dateCell.setAttribute('colspan', '5'); // Verander de colspan naar 5, want de datum wordt niet getoond
+            dateCell.classList.add('date-header');
+            dateCell.innerText = session.date;
+            dateRow.appendChild(dateCell);
+            tableBody.appendChild(dateRow);
+            lastDate = session.date;
         }
+
+        const row = document.createElement('tr');
+
+        // Sla de datumkolom over door alleen starttime, endtime en session toe te voegen
+        ['starttime', 'endtime', 'session'].forEach(key => {
+            const cell = document.createElement('td');
+            cell.innerText = session[key];
+            row.appendChild(cell);
+        });
+
+        // Lengte van de sessie berekenen
+        const lengthCell = document.createElement('td');
+        const length = new Date(endTime - startTime);
+        const lengthString = `${length.getUTCHours()}:${length.getUTCMinutes().toString().padStart(2, '0')}`;
+        lengthCell.innerText = lengthString;
+        row.appendChild(lengthCell);
+
+        // Actieknoppen toevoegen
+        const actionsCell = document.createElement('td');
+        actionsCell.style.display = 'flex';
+        actionsCell.style.gap = '10px';
+
+        const editButton = document.createElement('button');
+        editButton.classList.add('edit-button');
+        editButton.innerText = 'Edit';
+        editButton.onclick = () => {
+            showEditModal(session, index);
+        };
+        actionsCell.appendChild(editButton);
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-button');
+        deleteButton.innerText = 'Delete';
+        deleteButton.onclick = () => {
+            showDeleteConfirmModal(session, row);
+        };
+        actionsCell.appendChild(deleteButton);
+
+        row.appendChild(actionsCell);
+        tableBody.appendChild(row);
     });
 }
+
+setInterval(() => {
+    updateCountdown();
+    populateTable(); // Voeg deze regel toe om de tabel elke seconde te verversen
+}, 1000);
+
+// Get modal element and buttons
+const helpModal = document.getElementById('helpModal');
+const helpBtn = document.getElementById('helpBtn');
+const closeHelpModal = document.getElementById('closeHelpModal');
+
+// Open Help Modal
+document.getElementById('helpBtn').addEventListener('click', function() {
+    document.getElementById('help-modal-overlay').style.display = 'block';
+    document.getElementById('help-modal').style.display = 'block';
+});
+
+// Close Help Modal
+document.getElementById('help-modal-close').addEventListener('click', function() {
+    document.getElementById('help-modal-overlay').style.display = 'none';
+    document.getElementById('help-modal').style.display = 'none';
+});
+
+// Close Help Modal by clicking outside the modal
+document.getElementById('help-modal-overlay').addEventListener('click', function() {
+    document.getElementById('help-modal-overlay').style.display = 'none';
+    document.getElementById('help-modal').style.display = 'none';
+});
 
 function showEditModal(session, index) {
     document.getElementById('edit-modal-overlay').style.display = 'block';
@@ -191,11 +231,15 @@ function setCurrentDate() {
 }
 
 function showModal() {
-    if (lastChosenDate) {
-        document.getElementById('date').value = lastChosenDate; // Gebruik de laatst gekozen datum
+    // Controleer of de pagina net is gerefreshed
+    if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+        setCurrentDate(); // Vul de datum in met de huidige datum als de pagina gerefreshed is
+    } else if (lastChosenDate) {
+        document.getElementById('date').value = lastChosenDate; // Gebruik de laatst gekozen datum als de modal opnieuw wordt geopend
     } else {
-        setCurrentDate(); // Vul de datum in met de huidige datum
+        setCurrentDate(); // Vul de datum in met de huidige datum als er geen vorige datum is
     }
+
     document.getElementById('modal-overlay').style.display = 'block';
     document.getElementById('modal').style.display = 'block';
 }
