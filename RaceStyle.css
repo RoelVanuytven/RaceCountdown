@@ -21,6 +21,7 @@ body {
     align-items: center; /* Centreer items horizontaal */
     justify-content: center; /* Centreer items verticaal */
     min-height: 100vh; /* Zorg dat de body ten minste 100% van de viewport hoogte heeft */
+    text-align: center;
 }
 
 .left-align {
@@ -29,75 +30,73 @@ body {
 }
 
 .countdown {
-    width: 82%; /* Breedte van de countdown sectie */
-    margin: 20px auto; /* Voeg marge toe rondom en centreer horizontaal */
-    padding: 60px; /* Voeg padding toe rondom */
-    background-color: var(--color-dark); /* Achtergrondkleur van de countdown sectie */
-    border: 4px solid var(--color-primary); /* Randkleur en dikte */
-    border-radius: 10px; /* Ronde hoeken */
-    box-shadow: 0px 0px 20px 5px rgba(255, 26, 26, 0.5); /* Schaduw rondom */
-    font-size: 0.8rem; /* Lettergrootte van de countdown tekst */
-    text-align: center; /* Centreer de tekst */
-    display: flex; /* Flexbox voor de layout */
-    flex-direction: column; /* Flex richting naar kolom */
-    justify-content: center; /* Centreer de inhoud verticaal */
-    align-items: center; /* Centreer de inhoud horizontaal */
+    width: 90%;
+    max-width: 800px; /* Voeg een maximale breedte toe */
+    padding: 20px;
+    background-color: var(--color-dark);
+    border: 2px solid var(--color-primary);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px 5px rgba(255, 26, 26, 0.5);
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
 }
 
 .countdown-text {
-    font-weight: bold; /* Maak de tekst vet */
-    color: var(--color-secondary); /* Kleur van de countdown tekst */
-    font-size: 6em; /* Vergroot de lettergrootte */
+    font-weight: bold;
+    color: var(--color-secondary);
+    font-size: 3em;
 }
 
 .next-session {
-    margin-top: 10px; /* Voeg bovenmarge toe */
-    color: var(--color-secondary); /* Kleur van de tekst voor de volgende sessie */
-    font-size: 4em; /* Vergroot de lettergrootte */
-    white-space: pre-line; /* Houd de witruimtes zoals in de HTML */
-    font-weight: bold; /* Maak de tekst vet */
+    margin-top: 10px;
+    color: var(--color-secondary);
+    font-size: 1.5em;
+    white-space: pre-line;
+    font-weight: bold;
 }
 
 .table-container {
-    width: 90%; /* Breedte van de tabel container */
-    margin-top: 10px; /* Voeg bovenmarge toe */
+    width: 100%;
+    margin-top: 10px;
 }
 
 table {
-    width: 100%; /* Maak de tabel full-width */
-    border-collapse: collapse; /* Verwijder ruimte tussen de tabelcellen */
-    background-color: var(--color-dark); /* Achtergrondkleur van de tabel */
-    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5); /* Schaduw rondom de tabel */
-    border-radius: 10px; /* Ronde hoeken van de tabel */
-    overflow: hidden; /* Verberg overloop van inhoud */
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--color-dark);
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th, td {
-    padding: 20px; /* Voeg padding toe aan de cellen */
-    border-bottom: 1px solid var(--color-dark); /* Onderkantrand van de cellen */
-    text-align: left; /* Tekst uitlijnen naar links */
-    font-size: 1.5em; /* Vergroot de lettergrootte */
+    padding: 10px;
+    border-bottom: 1px solid var(--color-dark);
+    text-align: left;
+    font-size: 0.53em;
 }
 
 th {
-    background-color: var(--color-primary); /* Achtergrondkleur van de header cellen */
-    color: var(--color-light); /* Kleur van de tekst in de header cellen */
-    text-transform: uppercase; /* Zet de tekst in hoofdletters */
-    font-size: 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    text-transform: uppercase;
 }
 
 td {
-    color: var(--color-light); /* Kleur van de tekst in de cellen */
-    font-size: 2rem;
+    color: var(--color-light);
 }
 
 .date-header {
     background-color: var(--color-secondary); /* Achtergrondkleur van datumrijen */
     text-align: center; /* Centreer de tekst */
     font-weight: bold; /* Maak de tekst vet */
-    padding: 20px; /* Voeg padding toe rondom */
+    padding: 10px; /* Voeg padding toe rondom */
     color: var(--color-primary); /* Kleur van de tekst */
-    font-size: 2em; /* Vergroot de lettergrootte */
+    font-size: 0.8em; /* Vergroot de lettergrootte */
 }
 
 tr:nth-child(even) {
@@ -112,20 +111,28 @@ tr:hover {
     margin-top: 30px; /* Voeg bovenmarge toe */
     padding: 20px; /* Voeg padding toe rondom */
     width: 100%; /* Maak de footer full-width */
-    text-align: center; /* Centreer de tekst */
     background-color: var(--color-dark); /* Achtergrondkleur van de footer */
     color: var(--color-secondary); /* Kleur van de tekst in de footer */
-    font-size: 2rem; /* Vergroot de lettergrootte */
 }
 
 .footer-buttons {
-    margin-bottom: 10px; /* Voeg ondermarge toe */
+    margin-bottom: 8px; /* Voeg ondermarge toe */
+    font-size: 0.6em;
 }
 
 .footer-powered {
     font-size: 1.2em; /* Vergroot de lettergrootte van powered tekst */
     color: var(--color-secondary); /* Kleur van de powered tekst */
     margin-top: 15px; /* Voeg bovenmarge toe */
+}
+/* Voeg een CSS stijl toe voor de link in de footer */
+.footer-powered a {
+    color: var(--color-secondary); /* Kleur van de link, gelijk aan de rest van de tekst in de footer */
+    text-decoration: none; /* Verwijder onderlijning van de link */
+}
+
+.footer-powered a:hover {
+    text-decoration: underline; /* Voeg onderlijning toe bij hover */
 }
 
 .action-buttons {
@@ -140,7 +147,7 @@ tr:hover {
     border-radius: 5px; /* Ronde hoeken van de knoppen */
     padding: 15px; /* Voeg padding toe rondom */
     cursor: pointer; /* Verander de cursor naar pointer */
-    font-size: 1.2em; /* Vergroot de lettergrootte */
+    font-size: 1em; /* Vergroot de lettergrootte */
 }
 
 .edit-button:hover, .action-button:hover, .delete-button:hover, .modal-close:hover, #open-modal-button:hover, #open-file-button:hover {
@@ -215,4 +222,49 @@ tr:hover {
 
 #file-input {
     display: none; /* Verberg het file input element */
+}
+
+/* Responsiveness */
+@media only screen and (min-width: 768px) {
+    .countdown-text {
+        font-size: 4em;
+    }
+    .next-session {
+        font-size: 3em;
+    }
+    .date-header {
+        padding: 15px; /* Voeg padding toe rondom */
+        font-size: 2.5em; /* Vergroot de lettergrootte */
+    }
+    .edit-button, .action-button, .delete-button, .modal-close, #open-modal-button, #open-file-button {
+        padding: 20px; /* Voeg padding toe rondom */
+        font-size: 1.5em; /* Vergroot de lettergrootte */
+    }
+    .footer-buttons {
+        margin-bottom: 1px; /* Voeg ondermarge toe */
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .countdown {
+        padding: 80px;
+    }
+    .countdown-text {
+        font-size: 6em;
+    }
+    .next-session {
+        font-size: 4em;
+    }
+    th, td {
+        padding: 20px;
+        font-size: 2em;
+    }
+    .footer {
+        font-size: 1.5rem;
+    }
+    .footer-buttons {
+        margin-bottom: 1px; /* Voeg ondermarge toe */
+        font-size: 1em;
+    }
 }
