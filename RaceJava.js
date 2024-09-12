@@ -1,5 +1,6 @@
 const sessions = JSON.parse(localStorage.getItem('sessions')) || []; // Haal opgeslagen sessies op uit LocalStorage, of initialiseer een lege array
-
+let lastChosenDate = localStorage.getItem('lastChosenDate') || ''; // Sla de laatst gekozen datum op
+// Haal opgeslagen sessies op uit LocalStorage, of initialiseer een lege array
 function updateCountdown() {
     const now = new Date();
     const currentOrNextSession = sessions.find(session => {
@@ -12,18 +13,16 @@ function updateCountdown() {
         const startTime = new Date(`${currentOrNextSession.date}T${currentOrNextSession.starttime}:00`);
         const endTime = new Date(`${currentOrNextSession.date}T${currentOrNextSession.endtime}:00`);
 
-        let countdownText = '';
         let timeDiff;
 
         if (now < startTime) {
             timeDiff = startTime - now;
             document.getElementById('next-session').innerText = `Next session: ${currentOrNextSession.session}`;
-            document.getElementById('second-countdown').style.display = 'none'; // Verberg tweede countdown
+            document.getElementById('second-countdown').style.display = 'none';
         } else if (now >= startTime && now < endTime) {
             timeDiff = endTime - now;
             document.getElementById('next-session').innerText = `Session in progress: ${currentOrNextSession.session}`;
 
-            // Tweede countdown voor de volgende sessie na de huidige
             const nextSessionIndex = sessions.findIndex(session => {
                 const endTime = new Date(`${session.date}T${session.endtime}:00`);
                 return endTime > now;
@@ -41,11 +40,11 @@ function updateCountdown() {
                 const nextCountdownText = `${nextHours}h ${nextMinutes}m ${nextSeconds}s`;
                 document.getElementById('second-countdown-text').innerText = nextCountdownText;
                 document.getElementById('second-next-session').innerText = `Next session: ${nextSession.session}`;
-                document.getElementById('second-countdown').style.display = 'block'; // Toon tweede countdown
+                document.getElementById('second-countdown').style.display = 'block';
             } else {
                 document.getElementById('second-countdown-text').innerText = '00h 00m 00s';
                 document.getElementById('second-next-session').innerText = 'No further sessions';
-                document.getElementById('second-countdown').style.display = 'none'; // Verberg tweede countdown
+                document.getElementById('second-countdown').style.display = 'none';
             }
         }
 
@@ -54,10 +53,9 @@ function updateCountdown() {
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
 
-        countdownText = `${hours}h ${minutes}m ${seconds}s`;
+        let countdownText = days > 0 ? `${days}d ${hours}h ${minutes}m ${seconds}s` : `${hours}h ${minutes}m ${seconds}s`;
         document.getElementById('countdown-text').innerText = countdownText;
     } else {
-        // Als er geen sessie is, verberg beide countdowns
         document.getElementById('countdown-text').innerText = '00h 00m 00s';
         document.getElementById('next-session').innerText = 'No sessions';
         document.getElementById('second-countdown').style.display = 'none';
@@ -175,7 +173,11 @@ function setCurrentDate() {
 }
 
 function showModal() {
-    setCurrentDate(); // Vul de datum in voordat de modal wordt weergegeven
+    if (lastChosenDate) {
+        document.getElementById('date').value = lastChosenDate; // Gebruik de laatst gekozen datum
+    } else {
+        setCurrentDate(); // Vul de datum in met de huidige datum
+    }
     document.getElementById('modal-overlay').style.display = 'block';
     document.getElementById('modal').style.display = 'block';
 }
@@ -197,7 +199,9 @@ document.getElementById('modal-form').onsubmit = function(event) {
 
     if (date && starttime && endtime && session) {
         sessions.push({ date, starttime, endtime, session });
-        saveSessions(); // Sla nieuwe sessie op
+        saveSessions();
+        lastChosenDate = date; // Sla de laatst gekozen datum op
+        localStorage.setItem('lastChosenDate', lastChosenDate); // Bewaar de laatst gekozen datum in localStorage
         populateTable();
         closeModal();
     }
