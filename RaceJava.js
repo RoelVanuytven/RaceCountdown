@@ -3,13 +3,13 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
 // Als er geen sessies in localStorage zijn, gebruik de standaard sessies
 if (!sessions || sessions.length === 0) {
     sessions = [
-        { date: '2024-09-20', starttime: '09:00', endtime: '12:00', session: 'Paying Practice' },
-        { date: '2024-09-20', starttime: '14:30', endtime: '15:30', session: 'Drivers Briefing' },
-        { date: '2024-09-20', starttime: '16:00', endtime: '17:00', session: 'Non Qualifying Practice' },
-        { date: '2024-09-21', starttime: '09:10', endtime: '09:55', session: 'Qualifying' },
-        { date: '2024-09-22', starttime: '11:00', endtime: '12:00', session: 'Race 1' },
-        { date: '2024-09-22', starttime: '14:15', endtime: '15:15', session: 'Race 2' },
-        { date: '2024-09-22', starttime: '16:40', endtime: '17:40', session: 'Race 3' }
+        { date: '2024-10-10', starttime: '09:05', endtime: '11:20', session: 'Paying Practice 1' },
+        { date: '2024-10-10', starttime: '13:45', endtime: '15:00', session: 'Paying Practice 2' },
+        { date: '2024-10-10', starttime: '15:40', endtime: '16:55', session: 'Paying Practice 3' },
+        { date: '2024-10-12', starttime: '08:00', endtime: '08:30', session: 'briefing' },
+        { date: '2024-10-12', starttime: '09:05', endtime: '09:50', session: 'Non-Qualifying practice' },
+        { date: '2024-10-12', starttime: '15:00', endtime: '15:45', session: 'Qualifying' },
+        { date: '2024-10-13', starttime: '15:25', endtime: '17:30', session: 'Race' }
     ];
 
     // Sla de standaard sessies op in localStorage voor toekomstige referentie
