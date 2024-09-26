@@ -1,7 +1,8 @@
 let sessions = JSON.parse(localStorage.getItem('sessions'));
 
 // Als er geen sessies in localStorage zijn, gebruik de standaard sessies
-if (!sessions || sessions.length === 0) {
+//if (!sessions || sessions.length === 0)
+{
     sessions = [
         { date: '2024-10-10', starttime: '09:05', endtime: '11:20', session: 'Paying Practice 1' },
         { date: '2024-10-10', starttime: '13:45', endtime: '15:00', session: 'Paying Practice 2' },
