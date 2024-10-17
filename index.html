@@ -1,125 +1,136 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Race Event Countdown</title>
-    <link rel="stylesheet" href="RaceStyle.css">
+    <!-- HTML5 documenttype aangeven -->
+    <meta charset="UTF-8"> <!-- Stelt de karaktercodering van het document in op UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Zorgt voor een responsieve weergave op mobiele apparaten -->
+    <title>Race Event Countdown</title> <!-- Titel van de webpagina in de browser tab -->
+    <link rel="stylesheet" href="RaceStyle.css"> <!-- Link naar het externe CSS-bestand voor de opmaak -->
 </head>
 <body>
 
 <div class="countdown">
-    <div id="countdown-text" class="countdown-text">00h 00m 00s</div>
-    <div id="next-session" class="next-session">Next session: None</div>
+    <!-- Element voor de countdown timer -->
+    <div id="countdown-text" class="countdown-text">00h 00m 00s</div> <!-- Countdown tekstweergave voor de eerste sessie -->
+    <div id="next-session" class="next-session">Next session: None</div> <!-- Weergave voor de aankomende sessie, begint met "None" -->
 </div>
 
 <!-- Tweede countdown -->
 <div class="countdown" id="second-countdown">
-    <div id="second-countdown-text" class="countdown-text">00h 00m 00s</div>
-    <div id="second-next-session" class="next-session">Next session: None</div>
+    <!-- Tweede countdown element voor een andere sessie -->
+    <div id="second-countdown-text" class="countdown-text">00h 00m 00s</div> <!-- Countdown tekstweergave voor de tweede sessie -->
+    <div id="second-next-session" class="next-session">Next session: None</div> <!-- Weergave voor de aankomende sessie voor de tweede countdown -->
 </div>
 
 <div class="table-container">
+    <!-- Container voor de sessietabel -->
     <table>
         <thead>
+        <!-- Tabel header (kolomnamen) -->
         <tr>
-            <th>Start Time</th>
-            <th>End Time</th>
-            <th>Session</th>
-            <th>Length</th>
-            <th>Actions</th>
+            <th>Start Time</th> <!-- Kolom voor starttijd van de sessie -->
+            <th>End Time</th> <!-- Kolom voor eindtijd van de sessie -->
+            <th>Session</th> <!-- Kolom voor de naam/omschrijving van de sessie -->
+            <th>Length</th> <!-- Kolom voor de duur van de sessie -->
+            <th>Actions</th> <!-- Kolom voor acties zoals bewerken of verwijderen -->
         </tr>
         </thead>
         <tbody id="sessions-table">
-        <!-- Rows will be inserted here by JavaScript -->
+        <!-- Hier worden dynamisch rijen toegevoegd door JavaScript -->
         </tbody>
     </table>
 </div>
 
 <div class="footer">
+    <!-- Voettekst sectie -->
     <div class="footer-buttons">
-        <button id="delete-sessions-button" class="action-button">Delete all Sessions</button>
-        <button id="open-modal-button" class="action-button">Add Session</button>
-        <button id="open-file-button" class="action-button">Add Event with .csv or .txt</button>
-        <button id="export-csv-button" class="action-button">Export to CSV</button>
-        <button id="helpBtn" class="action-button">Help</button>
-        <input type="file" id="file-input" accept=".txt, .csv">
+        <!-- Knoppen in de voettekst -->
+        <button id="delete-sessions-button" class="action-button">Delete all Sessions</button> <!-- Knop om alle sessies te verwijderen -->
+        <button id="open-modal-button" class="action-button">Add Session</button> <!-- Knop om de modal voor het toevoegen van een nieuwe sessie te openen -->
+        <button id="open-file-button" class="action-button">Add Event with .csv or .txt</button> <!-- Knop om een sessie toe te voegen vanuit een CSV of TXT bestand -->
+        <button id="export-csv-button" class="action-button">Export to CSV</button> <!-- Knop om alle sessiegegevens te exporteren naar CSV -->
+        <button id="helpBtn" class="action-button">Help</button> <!-- Knop om de helpmodal te openen -->
+        <input type="file" id="file-input" accept=".txt, .csv"> <!-- Bestandsinput voor CSV- of TXT-bestanden -->
     </div>
     <div class="footer-powered">
+        <!-- Powered by sectie met link naar drankbaron.be -->
         Powered by <a href="https://www.drankbaron.be" target="_blank" rel="noopener noreferrer">drankbaron.be</a>
     </div>
 </div>
 
-<!-- Modal for adding a new session -->
-<div id="modal-overlay" class="modal-overlay"></div>
+<!-- Modal voor het toevoegen van een nieuwe sessie -->
+<div id="modal-overlay" class="modal-overlay"></div> <!-- Overlay achter de modal -->
 <div id="modal" class="modal">
-    <button id="modal-close" class="modal-close">×</button>
-    <div class="modal-header">Add Session</div>
+    <button id="modal-close" class="modal-close">×</button> <!-- Sluitknop voor de modal -->
+    <div class="modal-header">Add Session</div> <!-- Header van de modal -->
     <div class="modal-body">
+        <!-- Formulier voor het toevoegen van een sessie -->
         <form id="modal-form" class="modal-form">
-            <input type="date" id="date" required>
-            <input type="time" id="starttime" required>
-            <input type="time" id="endtime" required>
-            <input type="text" id="session" placeholder="Session description" required>
-            <button type="submit">Add Session</button>
+            <input type="date" id="date" required> <!-- Invoerveld voor de datum van de sessie -->
+            <input type="time" id="starttime" required> <!-- Invoerveld voor de starttijd van de sessie -->
+            <input type="time" id="endtime" required> <!-- Invoerveld voor de eindtijd van de sessie -->
+            <input type="text" id="session" placeholder="Session description" required> <!-- Invoerveld voor de omschrijving van de sessie -->
+            <button type="submit">Add Session</button> <!-- Knop om de sessie toe te voegen -->
         </form>
     </div>
 </div>
 
 <!-- Bevestigingsmodal voor het verwijderen van alle sessies -->
-<div id="confirm-overlay" class="modal-overlay"></div>
+<div id="confirm-overlay" class="modal-overlay"></div> <!-- Overlay achter de bevestigingsmodal -->
 <div id="confirm-modal" class="modal">
-    <button id="confirm-modal-close" class="modal-close">×</button>
-    <div class="modal-header"></div>
+    <button id="confirm-modal-close" class="modal-close">×</button> <!-- Sluitknop voor de bevestigingsmodal -->
+    <div class="modal-header"></div> <!-- Header van de modal (momenteel leeg) -->
     <div class="modal-body">
-        <button id="confirm-clear-sessions" class="action-button">Clear all Sessions</button>
-        <button id="confirm-cancel" class="action-button">Cancel</button>
+        <button id="confirm-clear-sessions" class="action-button">Clear all Sessions</button> <!-- Knop om alle sessies te wissen -->
+        <button id="confirm-cancel" class="action-button">Cancel</button> <!-- Knop om de actie te annuleren -->
     </div>
 </div>
 
-<!-- Bevestigingsmodal voor sessieverwijdering -->
-<div id="confirm-delete-overlay" class="modal-overlay"></div>
+<!-- Bevestigingsmodal voor het verwijderen van een sessie -->
+<div id="confirm-delete-overlay" class="modal-overlay"></div> <!-- Overlay achter de sessieverwijderingsmodal -->
 <div id="confirm-delete-modal" class="modal">
     <div class="modal-header">
-        <button id="confirm-modal-close-session" class="modal-close">×</button>
+        <button id="confirm-modal-close-session" class="modal-close">×</button> <!-- Sluitknop voor de sessieverwijderingsmodal -->
     </div>
     <div class="modal-body">
-        <p>Are you sure you want to delete this session?</p>
-        <button id="confirm-delete-yes" class="action-button">Yes</button>
-        <button id="confirm-delete-no" class="action-button">No</button>
+        <p>Are you sure you want to delete this session?</p> <!-- Bevestigingstekst voor het verwijderen van de sessie -->
+        <button id="confirm-delete-yes" class="action-button">Yes</button> <!-- Knop om de sessie te verwijderen -->
+        <button id="confirm-delete-no" class="action-button">No</button> <!-- Knop om de actie te annuleren -->
     </div>
 </div>
 
-<!-- Modal for editing a session -->
-<div id="edit-modal-overlay" class="modal-overlay"></div>
+<!-- Modal voor het bewerken van een sessie -->
+<div id="edit-modal-overlay" class="modal-overlay"></div> <!-- Overlay achter de bewerkingsmodal -->
 <div id="edit-modal" class="modal">
-    <button id="edit-modal-close" class="modal-close">×</button>
-    <div class="modal-header">Edit Session</div>
+    <button id="edit-modal-close" class="modal-close">×</button> <!-- Sluitknop voor de bewerkingsmodal -->
+    <div class="modal-header">Edit Session</div> <!-- Header van de bewerkingsmodal -->
     <div class="modal-body">
+        <!-- Formulier voor het bewerken van een sessie -->
         <form id="edit-modal-form" class="modal-form">
-            <input type="date" id="edit-date" required>
-            <input type="time" id="edit-starttime" required>
-            <input type="time" id="edit-endtime" required>
-            <input type="text" id="edit-session" placeholder="Session description" required>
-            <button type="button" id="save-edit-button">Save Changes</button>
+            <input type="date" id="edit-date" required> <!-- Invoerveld voor de datum van de sessie -->
+            <input type="time" id="edit-starttime" required> <!-- Invoerveld voor de starttijd van de sessie -->
+            <input type="time" id="edit-endtime" required> <!-- Invoerveld voor de eindtijd van de sessie -->
+            <input type="text" id="edit-session" placeholder="Session description" required> <!-- Invoerveld voor de sessiebeschrijving -->
+            <button type="button" id="save-edit-button">Save Changes</button> <!-- Knop om de wijzigingen op te slaan -->
         </form>
     </div>
 </div>
 
 <!-- Help Modal -->
-<div id="help-modal-overlay" class="modal-overlay"></div>
+<div id="help-modal-overlay" class="modal-overlay"></div> <!-- Overlay achter de helpmodal -->
 <div id="help-modal" class="modal">
-    <button id="help-modal-close" class="modal-close">×</button>
-    <div class="modal-header">Help - Functionality Overview</div>
+    <button id="help-modal-close" class="modal-close">×</button> <!-- Sluitknop voor de helpmodal -->
+    <div class="modal-header">Help - Functionality Overview</div> <!-- Header van de helpmodal -->
     <div class="modal-body">
         <ul>
+            <!-- Lijst met uitleg over de verschillende functies van de applicatie -->
             <li><strong>Edit</strong>: You can edit an existing session by changing the date, start time, end time, and/or session description.</li>
             <li><strong>Delete</strong>: You can delete a session; deleted sessions can only be restored by adding them manually unless you have a backup CSV file.</li>
             <li><strong>Delete all Sessions</strong>: Deletes all saved sessions from the system. Be careful, this action cannot be undone unless you have a backup CSV file.</li>
             <li><strong>Add Session</strong>: Allows you to add a new session to the event by entering the date, start time, end time, and session description.</li>
             <li><strong>Add Event with .csv or .txt</strong>: Imports session data from a .csv or .txt file. Make sure your file is properly formatted.
                 <h5>Example: <br>
-                    2024-10-10,09:05,11:20,Paying Practice 1<br>
+                    2024-10-10,09:05,11:20,Paying Practice 1<br> <!-- Voorbeeld van hoe een sessie geformatteerd moet zijn in het CSV-bestand -->
                     2024-10-10,13:45,15:00,Paying Practice 2<br>
                     2024-10-10,15:40,16:55,Paying Practice 3<br>
                     2024-10-12,08:00,08:30,briefing<br>
@@ -132,7 +143,7 @@
     </div>
 </div>
 
-<script src="RaceJava.js"></script>
+<script src="RaceJava.js"></script> <!-- Laadt het externe JavaScript-bestand voor de functionaliteit van de pagina -->
 
 </body>
 </html>

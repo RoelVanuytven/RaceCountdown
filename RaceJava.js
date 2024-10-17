@@ -4,41 +4,27 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
 //if (!sessions || sessions.length === 0)
 {
     sessions = [
-        { date: '2024-10-10', starttime: '09:05', endtime: '11:20', session: 'Paying Practice 1' },
-        { date: '2024-10-10', starttime: '10:30', endtime: '10:45', session: 'EuroNASCAR Club Challenge Briefing' },
-        { date: '2024-10-10', starttime: '11:25', endtime: '11:55', session: 'EuroNASCAR Club Challenge Session 1' },
-        { date: '2024-10-10', starttime: '13:05', endtime: '13:35', session: 'EuroNASCAR Club Challenge Session 2' },
-        { date: '2024-10-10', starttime: '13:45', endtime: '15:00', session: 'Paying Practice 2' },
-        { date: '2024-10-10', starttime: '15:05', endtime: '15:35', session: 'EuroNASCAR Club Challenge Session 3' },
-        { date: '2024-10-10', starttime: '15:40', endtime: '16:55', session: 'Paying Practice 3' },
-        { date: '2024-10-10', starttime: '16:30', endtime: '18:30', session: 'Parade EuroNASCAR PRO and EuroNASCAR 2' },
-        { date: '2024-10-10', starttime: '18:00', endtime: '18:30', session: 'Porsche Carrera Cup Benelux (team managers meeting)' },
-        { date: '2024-10-11', starttime: '11:45', endtime: '12:15', session: 'EuroNASCAR PRO & 2 briefing  (drivers, managers, spotters)' },
-        { date: '2024-10-11', starttime: '12:30', endtime: '13:00', session: 'Porsche Carrera Cup Benelux briefing (drivers)' },
-        { date: '2024-10-11', starttime: '14:05', endtime: '14:35', session: 'EuroNASCAR PRO Free Practice 1' },
-        { date: '2024-10-11', starttime: '14:45', endtime: '15:15', session: 'EuroNASCAR 2 Free Practice 1' },
-        { date: '2024-10-11', starttime: '15:25', endtime: '15:55', session: 'Porsche Carrera Cup Benelux Free Practice 1' },
-        { date: '2024-10-11', starttime: '16:05', endtime: '16:35', session: 'EuroNASCAR PRO Free Practice 2' },
-        { date: '2024-10-11', starttime: '16:45', endtime: '17:15', session: 'EuroNASCAR 2 Free Practice 2' },
-        { date: '2024-10-11', starttime: '17:25', endtime: '17:55', session: 'Porsche Carrera Cup Benelux Free Practice 2' },
-        { date: '2024-10-12', starttime: '08:00', endtime: '08:30', session: 'Belcar briefing' },
-        { date: '2024-10-12', starttime: '09:05', endtime: '09:50', session: 'Belcar Non-Qualifying Practice' },
-        { date: '2024-10-12', starttime: '10:00', endtime: '10:15', session: 'EuroNASCAR PRO Qualifying' },
-        { date: '2024-10-12', starttime: '10:20', endtime: '10:25', session: 'EuroNASCAR PRO Superpole' },
-        { date: '2024-10-12', starttime: '10:40', endtime: '11:00', session: 'EuroNASCAR 2 Qualifying' },
-        { date: '2024-10-12', starttime: '11:10', endtime: '11:45', session: 'Porsche Carrera Cup Benelux Qualifying' },
-        { date: '2024-10-12', starttime: '13:15', endtime: '13:40', session: 'EuroNASCAR PRO Gridwalk' },
-        { date: '2024-10-12', starttime: '14:00', endtime: '14:45', session: 'EuroNASCAR PRO Race 1' },
-        { date: '2024-10-12', starttime: '15:00', endtime: '15:45', session: 'Belcar Qualifying' },
-        { date: '2024-10-12', starttime: '16:00', endtime: '16:35', session: 'Porsche Carrera Cup Benelux Race 1' },
-        { date: '2024-10-12', starttime: '16:50', endtime: '17:30', session: 'EuroNASCAR 2 Race 1' },
-        { date: '2024-10-13', starttime: '10:05', endtime: '10:15', session: 'EuroNASCAR PRO & 2 Warm up' },
-        { date: '2024-10-13', starttime: '10:30', endtime: '11:05', session: 'Celebration 60 Years Mustang' },
-        { date: '2024-10-13', starttime: '11:25', endtime: '12:05', session: 'EuroNASCAR 2 Race 2' },
-        { date: '2024-10-13', starttime: '12:25', endtime: '13:00', session: 'Porsche Carrera Cup Benelux Race 2' },
-        { date: '2024-10-13', starttime: '13:25', endtime: '13:50', session: 'EuroNASCAR PRO Gridwalk' },
-        { date: '2024-10-13', starttime: '14:05', endtime: '14:50', session: 'EuroNASCAR PRO Race 2' },
-        { date: '2024-10-13', starttime: '15:25', endtime: '17:30', session: 'Belcar Race' }
+        // Thursday, 14 November 2024
+        { date: '2024-11-14', starttime: '09:05', endtime: '11:55', session: 'Practices (payable)' },
+        { date: '2024-11-14', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
+        { date: '2024-11-14', starttime: '13:05', endtime: '16:55', session: 'Practices (payable)' },
+        // Friday, 15 November 2024
+        { date: '2024-11-15', starttime: '09:05', endtime: '11:55', session: 'Skylimit Track Days' },
+        { date: '2024-11-15', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
+        { date: '2024-11-15', starttime: '13:05', endtime: '16:55', session: 'Skylimit Track Days' },
+        { date: '2024-11-15', starttime: '16:00', endtime: '19:00', session: 'Administration & Scrutineering' },
+        // Saturday, 16 November 2024
+        { date: '2024-11-16', starttime: '09:00', endtime: '10:45', session: 'Vrij Rijden Sessie 1' },
+        { date: '2024-11-16', starttime: '10:50', endtime: '11:50', session: 'Qualifying Race Promotion Night' },
+        { date: '2024-11-16', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
+        { date: '2024-11-16', starttime: '12:10', endtime: '12:50', session: 'Pit Walk' },
+        { date: '2024-11-16', starttime: '13:00', endtime: '14:00', session: 'Vrij Rijden Sessie 2' },
+        { date: '2024-11-16', starttime: '14:00', endtime: '15:00', session: 'Vrij Rijden Sessie 3' },
+        { date: '2024-11-16', starttime: '15:00', endtime: '16:00', session: 'Vrij Rijden Sessie 4' },
+        { date: '2024-11-16', starttime: '16:10', endtime: '16:20', session: 'Cars on Grid' },
+        { date: '2024-11-16', starttime: '16:20', endtime: '16:40', session: 'Grid Walk' },
+        { date: '2024-11-16', starttime: '16:45', endtime: '16:50', session: 'Warm Up Lap' },
+        { date: '2024-11-16', starttime: '16:50', endtime: '21:50', session: 'Race Promotion Night (5 hours race)' }
     ];
 
     // Sla de standaard sessies op in localStorage voor toekomstige referentie
