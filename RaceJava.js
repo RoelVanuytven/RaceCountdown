@@ -4,31 +4,27 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
 //if (!sessions || sessions.length === 0)
 {
     sessions = [
-        // Thursday, 14 November 2024
-        { date: '2024-11-14', starttime: '09:05', endtime: '11:55', session: 'Practices (payable)' },
-        { date: '2024-11-14', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
-        { date: '2024-11-14', starttime: '13:05', endtime: '16:55', session: 'Practices (payable)' },
-        // Friday, 15 November 2024
-        { date: '2024-11-15', starttime: '09:05', endtime: '11:55', session: 'Skylimit Track Days' },
-        { date: '2024-11-15', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
-        { date: '2024-11-15', starttime: '13:05', endtime: '16:55', session: 'Skylimit Track Days' },
-        { date: '2024-11-15', starttime: '16:00', endtime: '17:00', session: 'Free Practice Race Promotion Night' },
-        { date: '2024-11-15', starttime: '16:00', endtime: '19:00', session: 'Administration & Scrutineering' },
-        // Saturday, 16 November 2024
-        { date: '2024-11-16', starttime: '09:00', endtime: '10:45', session: 'Vrij Rijden Sessie 1' },
-        { date: '2024-11-16', starttime: '10:50', endtime: '11:50', session: 'Qualifying Race Promotion Night' },
-        { date: '2024-11-16', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
-        { date: '2024-11-16', starttime: '12:10', endtime: '12:50', session: 'Pit Walk' },
-        { date: '2024-11-16', starttime: '13:00', endtime: '14:00', session: 'Vrij Rijden Sessie 2' },
-        { date: '2024-11-16', starttime: '14:00', endtime: '15:00', session: 'Vrij Rijden Sessie 3' },
-        { date: '2024-11-16', starttime: '15:00', endtime: '16:00', session: 'Vrij Rijden Sessie 4' },
-        { date: '2024-11-16', starttime: '16:10', endtime: '16:20', session: 'Cars on Grid' },
-        { date: '2024-11-16', starttime: '16:20', endtime: '16:40', session: 'Grid Walk' },
-        { date: '2024-11-16', starttime: '16:45', endtime: '16:50', session: 'Warm Up Lap' },
-        { date: '2024-11-16', starttime: '16:50', endtime: '21:50', session: 'Race Promotion Night (5 hours race)' }
+        // Friday, 17 January 2025
+        { date: '2025-01-17', starttime: '17:00', endtime: '18:15', session: 'Sessie 1' },
+        { date: '2025-01-17', starttime: '21:00', endtime: '23:00', session: 'Sessie 2' },
+        // Saturday, 18 January 2025
+        { date: '2025-01-18', starttime: '17:15', endtime: '18:45', session: 'Sessie 3' },
+        { date: '2025-01-18', starttime: '21:10', endtime: '22:10', session: 'Sessie 4' },
+        // Sunday, 19 January 2025
+        { date: '2025-01-19', starttime: '00:30', endtime: '02:30', session: 'Sessie 5' },
+        { date: '2025-01-19', starttime: '15:45', endtime: '16:45', session: 'Sessie 6' },
+        { date: '2025-01-19', starttime: '20:30', endtime: '22:00', session: 'Sessie 7' },
+        // Thursday, 23 January 2025
+        { date: '2025-01-23', starttime: '16:05', endtime: '17:35', session: 'Vrije Training 1' },
+        { date: '2025-01-23', starttime: '20:10', endtime: '21:40', session: 'Kwalificatie' },
+        // Friday, 24 January 2025
+        { date: '2025-01-24', starttime: '00:30', endtime: '02:00', session: 'Vrije Training 2' },
+        { date: '2025-01-24', starttime: '17:20', endtime: '18:20', session: 'Vrije Training 3' },
+        // Saturday-Sunday, 25-26 January 2025
+        { date: '2025-01-25', starttime: '19:40', endtime: '19:40', session: '24 uur van Daytona Race' }
     ];
 
-    // Sla de standaard sessies op in localStorage voor toekomstige referentie
+    // Sla de sessies op in localStorage
     localStorage.setItem('sessions', JSON.stringify(sessions));
 }
 
