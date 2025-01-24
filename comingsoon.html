@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon - Racebaron</title>
+    <link rel="stylesheet" href="RaceStyle.css">
+</head>
+<body>
+<nav class="navigation">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="comingsoon.html" class="active">Coming Soon</a></li>
+    </ul>
+</nav>
+
+<div class="coming-soon-container">
+    <div class="welcome-section">
+        <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Racebaron Logo" class="main-logo">
+        <p>Welcome to the Racebaron tools website where in a few months you can find tools to make life easier for race teams.</p>
+    </div>
+
+    <div class="tools-grid">
+        <!-- Available Tools -->
+        <div class="tool-card">
+            <img src="Events.JPG" alt="Schema Tool" class="tool-image" data-modal-image>
+            <h2>Schema</h2>
+            <p>Display various sessions linked to events, with the option to filter by event, class, etc.</p>
+            <a href="index.html" class="status available">Available</a>
+        </div>
+        <div class="tool-card">
+            <img src="FCY%20Calculator.JPG" alt="FCY/SC Calculator" class="tool-image" data-modal-image>
+            <h2>FCY/SC Calculator</h2>
+            <p>Calculate potential advantages of a pitstop during a Full Course Yellow or Safety Car period.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+        <div class="tool-card">
+            <img src="Regulations.JPG" alt="Regulations" class="tool-image" data-modal-image>
+            <h2>Regulations</h2>
+            <p>Find a summary of the regulations per category with links to the full regulation texts.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <!-- Repeat for all other tool cards, replacing onclick with data-modal-image -->
+        <!-- Example of one more card, repeat this pattern for all others -->
+        <div class="tool-card">
+            <img src="Edit%20Raceteams.JPG" alt="Race Teams" class="tool-image" data-modal-image>
+            <h2>Raceteams</h2>
+            <p>See the info of race teams.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <!-- Continue with all other cards following the same pattern -->
+        <!-- Under Construction Tools -->
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Session Planner" class="tool-image" data-modal-image>
+            <h2>Session Planner</h2>
+            <p>Organize a session by goal, driver, fuel, and pitstops.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Crew Planner" class="tool-image" data-modal-image>
+            <h2>Crew Planner</h2>
+            <p>Distribute tasks during a pitstop among the crew.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Strategy" class="tool-image" data-modal-image>
+            <h2>Strategy</h2>
+            <p>Analyze strategic possibilities in a race based on available data.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Laptimes/Fuel" class="tool-image" data-modal-image>
+            <h2>Laptimes/Fuel</h2>
+            <p>Enter laptimes to estimate fuel levels based on fuel consumption.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Points" class="tool-image" data-modal-image>
+            <h2>Points</h2>
+            <p>Estimate points based on the current position in the event.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Race Analysis" class="tool-image" data-modal-image>
+            <h2>Race Analysis</h2>
+            <p>Generate an analysis of a past event.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Setup" class="tool-image" data-modal-image>
+            <h2>Setup</h2>
+            <p>Track setups over time with notes.</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+
+
+
+        <div class="tool-card">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Tire Pressures" class="tool-image" data-modal-image>
+            <h2>Tire Pressures</h2>
+            <p>Calculate tyre pressures based on race track, driver, temperatures,...</p>
+            <span class="status coming-soon">Under Construction</span>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="image-modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="modalImage" src="" alt="Modal Image">
+    </div>
+</div>
+
+<div class="footer">
+    <div class="footer-powered">
+        Powered by <a href="https://www.drankbaron.be" target="_blank" rel="noopener noreferrer">drankbaron.be</a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get modal elements
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const closeBtn = document.querySelector('.close-modal');
+
+        // Get all images with data-modal-image attribute
+        const images = document.querySelectorAll('[data-modal-image]');
+
+        // Add click event to all images
+        images.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+            });
+        });
+
+        // Close modal when clicking the close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        // Close modal when clicking outside the image
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Close modal with escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+</body>
+</html>
