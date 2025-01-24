@@ -12,6 +12,7 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
         { date: '2024-11-15', starttime: '09:05', endtime: '11:55', session: 'Skylimit Track Days' },
         { date: '2024-11-15', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
         { date: '2024-11-15', starttime: '13:05', endtime: '16:55', session: 'Skylimit Track Days' },
+        { date: '2024-11-15', starttime: '16:00', endtime: '17:00', session: 'Free Practice Race Promotion Night' },
         { date: '2024-11-15', starttime: '16:00', endtime: '19:00', session: 'Administration & Scrutineering' },
         // Saturday, 16 November 2024
         { date: '2024-11-16', starttime: '09:00', endtime: '10:45', session: 'Vrij Rijden Sessie 1' },
