@@ -4,24 +4,39 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
 //if (!sessions || sessions.length === 0)
 {
     sessions = [
-        // Friday, 17 January 2025
-        { date: '2025-01-17', starttime: '17:00', endtime: '18:15', session: 'Sessie 1' },
-        { date: '2025-01-17', starttime: '21:00', endtime: '23:00', session: 'Sessie 2' },
-        // Saturday, 18 January 2025
-        { date: '2025-01-18', starttime: '17:15', endtime: '18:45', session: 'Sessie 3' },
-        { date: '2025-01-18', starttime: '21:10', endtime: '22:10', session: 'Sessie 4' },
-        // Sunday, 19 January 2025
-        { date: '2025-01-19', starttime: '00:30', endtime: '02:30', session: 'Sessie 5' },
-        { date: '2025-01-19', starttime: '15:45', endtime: '16:45', session: 'Sessie 6' },
-        { date: '2025-01-19', starttime: '20:30', endtime: '22:00', session: 'Sessie 7' },
-        // Thursday, 23 January 2025
-        { date: '2025-01-23', starttime: '16:05', endtime: '17:35', session: 'Vrije Training 1' },
-        { date: '2025-01-23', starttime: '20:10', endtime: '21:40', session: 'Kwalificatie' },
-        // Friday, 24 January 2025
-        { date: '2025-01-24', starttime: '00:30', endtime: '02:00', session: 'Vrije Training 2' },
-        { date: '2025-01-24', starttime: '17:20', endtime: '18:20', session: 'Vrije Training 3' },
-        // Saturday-Sunday, 25-26 January 2025
-        { date: '2025-01-25', starttime: '19:40', endtime: '19:40', session: '24 uur van Daytona Race' }
+        // Friday, 16 May 2025
+        { date: '2025-05-16', starttime: '10:45', endtime: '11:15', session: 'TCR Europe Briefing' },
+        { date: '2025-05-16', starttime: '14:05', endtime: '14:55', session: 'MitJet International Free Testing' },
+        { date: '2025-05-16', starttime: '15:05', endtime: '15:35', session: 'TCR Europe Free Practice 1' },
+        { date: '2025-05-16', starttime: '15:45', endtime: '16:35', session: 'MitJet International Free Testing' },
+        { date: '2025-05-16', starttime: '16:45', endtime: '17:15', session: 'TCR Europe Free Practice 2' },
+
+        // Saturday, 17 May 2025
+        { date: '2025-05-17', starttime: '08:00', endtime: '08:30', session: 'MitJet International Briefing' },
+        { date: '2025-05-17', starttime: '08:45', endtime: '09:15', session: 'Belcar Endurance Championship Briefing' },
+        { date: '2025-05-17', starttime: '09:05', endtime: '09:40', session: 'MitJet International Qualifying' },
+        { date: '2025-05-17', starttime: '09:45', endtime: '10:30', session: 'Belcar Endurance Championship Non qualifying practice' },
+        { date: '2025-05-17', starttime: '09:45', endtime: '10:15', session: 'Belcar Skylimit Sprint Cup Briefing' },
+        { date: '2025-05-17', starttime: '10:40', endtime: '11:10', session: 'Belcar Skylimit Sprint Cup Qualifying 1' },
+        { date: '2025-05-17', starttime: '11:20', endtime: '11:55', session: 'TCR Europe Qualifying' },
+        { date: '2025-05-17', starttime: '13:00', endtime: '13:30', session: 'Belcar Historic Cup Briefing' },
+        { date: '2025-05-17', starttime: '13:15', endtime: '13:35', session: 'MitJet International Race 1' },
+        { date: '2025-05-17', starttime: '13:45', endtime: '14:30', session: 'Belcar Endurance Championship Qualifying' },
+        { date: '2025-05-17', starttime: '14:40', endtime: '15:10', session: 'Belcar Skylimit Sprint Cup Qualifying 2' },
+        { date: '2025-05-17', starttime: '15:20', endtime: '15:50', session: 'Belcar Historic Cup Qualifying' },
+        { date: '2025-05-17', starttime: '16:15', endtime: '16:45', session: 'TCR Europe Race 1' },
+        { date: '2025-05-17', starttime: '17:05', endtime: '17:25', session: 'MitJet International Race 2' },
+        { date: '2025-05-17', starttime: '17:30', endtime: '17:50', session: 'Belcar Endurance GROUP PICTURE' },
+
+        // Sunday, 18 May 2025
+        { date: '2025-05-18', starttime: '10:15', endtime: '10:35', session: 'MitJet International Race 3' },
+        { date: '2025-05-18', starttime: '10:50', endtime: '11:20', session: 'Belcar Historic Cup Race 1' },
+        { date: '2025-05-18', starttime: '11:35', endtime: '12:05', session: 'Belcar Skylimit Sprint Cup Race 1' },
+        { date: '2025-05-18', starttime: '12:30', endtime: '13:00', session: 'TCR Europe Race 2' },
+        { date: '2025-05-18', starttime: '13:20', endtime: '13:40', session: 'MitJet International Race 4' },
+        { date: '2025-05-18', starttime: '14:00', endtime: '16:05', session: 'Belcar Endurance Championship Race' },
+        { date: '2025-05-18', starttime: '16:25', endtime: '16:55', session: 'Belcar Historic Cup Race 2' },
+        { date: '2025-05-18', starttime: '17:10', endtime: '17:40', session: 'Belcar Skylimit Sprint Cup Race 2' }
     ];
 
     // Sla de sessies op in localStorage
