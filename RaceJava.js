@@ -4,6 +4,48 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
 //if (!sessions || sessions.length === 0)
 {
     sessions = [
+        // Tuesdag, 25 February 2025
+        { date: '2025-02-25', starttime: '16:00', endtime: '18:00', session: 'test' },
+        // Friday, 28 February 2025
+        { date: '2025-02-28', starttime: '09:00', endtime: '09:15', session: 'Session 1 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '09:15', endtime: '09:30', session: 'Session 1 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+        { date: '2025-02-28', starttime: '09:30', endtime: '09:45', session: 'Session 1 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '09:45', endtime: '10:00', session: 'Session 1 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+        { date: '2025-02-28', starttime: '10:00', endtime: '10:15', session: 'Session 1 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+
+        { date: '2025-02-28', starttime: '10:15', endtime: '10:30', session: 'Session 2 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '10:30', endtime: '10:45', session: 'Session 2 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+        { date: '2025-02-28', starttime: '10:45', endtime: '11:00', session: 'Session 2 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '11:00', endtime: '11:15', session: 'Session 2 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+        { date: '2025-02-28', starttime: '11:15', endtime: '11:30', session: 'Session 2 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+
+        { date: '2025-02-28', starttime: '11:30', endtime: '11:45', session: 'Session 3 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '11:45', endtime: '12:00', session: 'Session 3 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+        { date: '2025-02-28', starttime: '12:00', endtime: '12:15', session: 'Session 3 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '12:15', endtime: '12:30', session: 'Session 3 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+        { date: '2025-02-28', starttime: '12:30', endtime: '12:45', session: 'Session 3 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+
+        { date: '2025-02-28', starttime: '13:45', endtime: '14:00', session: 'Session 4 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '14:00', endtime: '14:15', session: 'Session 4 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+        { date: '2025-02-28', starttime: '14:15', endtime: '14:30', session: 'Session 4 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '14:30', endtime: '14:45', session: 'Session 4 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+        { date: '2025-02-28', starttime: '14:45', endtime: '15:00', session: 'Session 4 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+
+        { date: '2025-02-28', starttime: '15:00', endtime: '15:15', session: 'Session 5 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '15:15', endtime: '15:30', session: 'Session 5 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+        { date: '2025-02-28', starttime: '15:30', endtime: '15:45', session: 'Session 5 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '15:45', endtime: '16:00', session: 'Session 5 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+        { date: '2025-02-28', starttime: '16:00', endtime: '16:15', session: 'Session 5 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+
+        { date: '2025-02-28', starttime: '15:30', endtime: '15:50', session: 'ADMIN - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '15:50', endtime: '16:10', session: 'ADMIN - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
+        { date: '2025-02-28', starttime: '16:10', endtime: '16:30', session: 'ADMIN - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '16:30', endtime: '17:15', session: 'ADMIN - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+
+        { date: '2025-02-28', starttime: '16:00', endtime: '16:30', session: 'TIRES PF - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+        { date: '2025-02-28', starttime: '16:30', endtime: '17:00', session: 'TIRES PF - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
+        { date: '2025-02-28', starttime: '17:00', endtime: '17:30', session: 'TIRES PF - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+        { date: '2025-02-28', starttime: '17:30', endtime: '18:15', session: 'TIRES PF - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
         // Thursday, 28 February 2025
         { date: '2025-02-28', starttime: '16:00', endtime: '18:00', session: 'Sporting checks / Registration < ALL > / Transponder checks' },
 
@@ -60,6 +102,7 @@ let sessions = JSON.parse(localStorage.getItem('sessions'));
         { date: '2025-03-02', starttime: '16:20', endtime: '16:34', session: 'X30 Senior Race 19 B-Final' },
         { date: '2025-03-02', starttime: '16:45', endtime: '16:59', session: 'KA 100 Race 20 Final' },
         { date: '2025-03-02', starttime: '17:10', endtime: '17:50', session: 'Honda 9PK Race 21 Endurance' }
+
     ];
 
     // Sla de sessies op in localStorage
