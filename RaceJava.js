@@ -1,115 +1,149 @@
-let sessions = JSON.parse(localStorage.getItem('sessions'));
+// Definieer de standaard sessies
+const defaultSessions = [
+    // Tuesdag, 25 February 2025
+    { date: '2025-02-25', starttime: '16:00', endtime: '18:00', session: 'test' },
+    // Friday, 28 February 2025
+    { date: '2025-02-28', starttime: '09:00', endtime: '09:15', session: 'Session 1 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '09:15', endtime: '09:30', session: 'Session 1 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+    { date: '2025-02-28', starttime: '09:30', endtime: '09:45', session: 'Session 1 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '09:45', endtime: '10:00', session: 'Session 1 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '10:00', endtime: '10:15', session: 'Session 1 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
 
-// Als er geen sessies in localStorage zijn, gebruik de standaard sessies
-//if (!sessions || sessions.length === 0)
-{
-    sessions = [
-        // Tuesdag, 25 February 2025
-        { date: '2025-02-25', starttime: '16:00', endtime: '18:00', session: 'test' },
-        // Friday, 28 February 2025
-        { date: '2025-02-28', starttime: '09:00', endtime: '09:15', session: 'Session 1 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '09:15', endtime: '09:30', session: 'Session 1 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
-        { date: '2025-02-28', starttime: '09:30', endtime: '09:45', session: 'Session 1 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '09:45', endtime: '10:00', session: 'Session 1 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        { date: '2025-02-28', starttime: '10:00', endtime: '10:15', session: 'Session 1 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '10:15', endtime: '10:30', session: 'Session 2 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '10:30', endtime: '10:45', session: 'Session 2 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+    { date: '2025-02-28', starttime: '10:45', endtime: '11:00', session: 'Session 2 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '11:00', endtime: '11:15', session: 'Session 2 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '11:15', endtime: '11:30', session: 'Session 2 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
 
-        { date: '2025-02-28', starttime: '10:15', endtime: '10:30', session: 'Session 2 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '10:30', endtime: '10:45', session: 'Session 2 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
-        { date: '2025-02-28', starttime: '10:45', endtime: '11:00', session: 'Session 2 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '11:00', endtime: '11:15', session: 'Session 2 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        { date: '2025-02-28', starttime: '11:15', endtime: '11:30', session: 'Session 2 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '11:30', endtime: '11:45', session: 'Session 3 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '11:45', endtime: '12:00', session: 'Session 3 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+    { date: '2025-02-28', starttime: '12:00', endtime: '12:15', session: 'Session 3 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '12:15', endtime: '12:30', session: 'Session 3 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '12:30', endtime: '12:45', session: 'Session 3 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
 
-        { date: '2025-02-28', starttime: '11:30', endtime: '11:45', session: 'Session 3 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '11:45', endtime: '12:00', session: 'Session 3 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
-        { date: '2025-02-28', starttime: '12:00', endtime: '12:15', session: 'Session 3 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '12:15', endtime: '12:30', session: 'Session 3 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        { date: '2025-02-28', starttime: '12:30', endtime: '12:45', session: 'Session 3 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '13:45', endtime: '14:00', session: 'Session 4 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '14:00', endtime: '14:15', session: 'Session 4 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+    { date: '2025-02-28', starttime: '14:15', endtime: '14:30', session: 'Session 4 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '14:30', endtime: '14:45', session: 'Session 4 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '14:45', endtime: '15:00', session: 'Session 4 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
 
-        { date: '2025-02-28', starttime: '13:45', endtime: '14:00', session: 'Session 4 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '14:00', endtime: '14:15', session: 'Session 4 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
-        { date: '2025-02-28', starttime: '14:15', endtime: '14:30', session: 'Session 4 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '14:30', endtime: '14:45', session: 'Session 4 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        { date: '2025-02-28', starttime: '14:45', endtime: '15:00', session: 'Session 4 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '15:00', endtime: '15:15', session: 'Session 5 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '15:15', endtime: '15:30', session: 'Session 5 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
+    { date: '2025-02-28', starttime: '15:30', endtime: '15:45', session: 'Session 5 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '15:45', endtime: '16:00', session: 'Session 5 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '16:00', endtime: '16:15', session: 'Session 5 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
 
-        { date: '2025-02-28', starttime: '15:00', endtime: '15:15', session: 'Session 5 - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '15:15', endtime: '15:30', session: 'Session 5 - Group 2 IAME X30 Junior (NR\'s 1-99)' },
-        { date: '2025-02-28', starttime: '15:30', endtime: '15:45', session: 'Session 5 - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '15:45', endtime: '16:00', session: 'Session 5 - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        { date: '2025-02-28', starttime: '16:00', endtime: '16:15', session: 'Session 5 - Group 5 IAME KA 100 SEN 145/155 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '15:30', endtime: '15:50', session: 'ADMIN - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '15:50', endtime: '16:10', session: 'ADMIN - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '16:10', endtime: '16:30', session: 'ADMIN - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '16:30', endtime: '17:15', session: 'ADMIN - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
 
-        { date: '2025-02-28', starttime: '15:30', endtime: '15:50', session: 'ADMIN - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '15:50', endtime: '16:10', session: 'ADMIN - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
-        { date: '2025-02-28', starttime: '16:10', endtime: '16:30', session: 'ADMIN - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '16:30', endtime: '17:15', session: 'ADMIN - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    { date: '2025-02-28', starttime: '16:00', endtime: '16:30', session: 'TIRES PF - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
+    { date: '2025-02-28', starttime: '16:30', endtime: '17:00', session: 'TIRES PF - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
+    { date: '2025-02-28', starttime: '17:00', endtime: '17:30', session: 'TIRES PF - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
+    { date: '2025-02-28', starttime: '17:30', endtime: '18:15', session: 'TIRES PF - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
+    // Thursday, 28 February 2025
+    { date: '2025-02-28', starttime: '16:00', endtime: '18:00', session: 'Sporting checks / Registration < ALL > / Transponder checks' },
 
-        { date: '2025-02-28', starttime: '16:00', endtime: '16:30', session: 'TIRES PF - Group 1 IAME Mini / IAME Mini Rookie (NR\'s 800 / 900)' },
-        { date: '2025-02-28', starttime: '16:30', endtime: '17:00', session: 'TIRES PF - Group 2 IAME X30 Junior + KA100 (NR\'s 1-99 / 700)' },
-        { date: '2025-02-28', starttime: '17:00', endtime: '17:30', session: 'TIRES PF - Group 3 Formula Honda 9PK Junior / Senior (NR\'s 100 / 200)' },
-        { date: '2025-02-28', starttime: '17:30', endtime: '18:15', session: 'TIRES PF - Group 4 IAME X30 Senior (NR\'s 200 / 300)' },
-        // Thursday, 28 February 2025
-        { date: '2025-02-28', starttime: '16:00', endtime: '18:00', session: 'Sporting checks / Registration < ALL > / Transponder checks' },
+    // Friday, 1 March 2025
+    { date: '2025-03-01', starttime: '08:00', endtime: '08:45', session: 'X30 SENIOR Sporting checks / Registration' },
+    { date: '2025-03-01', starttime: '08:45', endtime: '09:15', session: 'X30 JUNIOR Sporting checks / Registration' },
+    { date: '2025-03-01', starttime: '09:00', endtime: '09:30', session: 'IAME MINI Sporting checks / Registration' },
+    { date: '2025-03-01', starttime: '09:30', endtime: '10:00', session: 'IAME MINI ROOKIE Sporting checks / Registration' },
+    { date: '2025-03-01', starttime: '10:00', endtime: '10:15', session: 'X30 Senior Warm Up (Even numbers)' },
+    { date: '2025-03-01', starttime: '10:15', endtime: '10:30', session: 'X30 Senior Warm Up (Odd numbers)' },
+    { date: '2025-03-01', starttime: '10:30', endtime: '10:45', session: 'IAME Mini Warm Up' },
+    { date: '2025-03-01', starttime: '10:45', endtime: '11:00', session: 'IAME MINI ROOKIE Warm Up' },
+    { date: '2025-03-01', starttime: '11:00', endtime: '11:15', session: 'X30 Junior Warm Up' },
+    { date: '2025-03-01', starttime: '11:30', endtime: '11:45', session: 'X30 Senior Non Qualifying (Even numbers)' },
+    { date: '2025-03-01', starttime: '11:45', endtime: '12:00', session: 'X30 Senior Non Qualifying (Odd numbers)' },
+    { date: '2025-03-01', starttime: '12:00', endtime: '12:15', session: 'IAME Mini Non Qualifying' },
+    { date: '2025-03-01', starttime: '12:15', endtime: '12:30', session: 'IAME MINI ROOKIE Non Qualifying' },
+    { date: '2025-03-01', starttime: '12:30', endtime: '12:45', session: 'X30 Junior Non Qualifying' },
+    { date: '2025-03-01', starttime: '13:00', endtime: '13:05', session: 'X30 Senior Qualifying Group 1' },
+    { date: '2025-03-01', starttime: '13:15', endtime: '13:20', session: 'X30 Senior Qualifying Group 2' },
+    { date: '2025-03-01', starttime: '13:30', endtime: '13:36', session: 'IAME Mini Qualifying' },
+    { date: '2025-03-01', starttime: '13:45', endtime: '13:51', session: 'IAME MINI ROOKIE Qualifying' },
+    { date: '2025-03-01', starttime: '14:00', endtime: '14:05', session: 'X30 Junior Qualifying' },
+    { date: '2025-03-01', starttime: '15:30', endtime: '15:40', session: 'X30 Senior Race 1 Heat 1 (A-B)' },
+    { date: '2025-03-01', starttime: '15:50', endtime: '16:00', session: 'X30 Senior Race 2 Heat 2 (C-D)' },
+    { date: '2025-03-01', starttime: '16:10', endtime: '16:17', session: 'IAME Mini Race 3 Heat 1' },
+    { date: '2025-03-01', starttime: '16:30', endtime: '16:37', session: 'IAME MINI ROOKIE Race 4 Heat 1' },
+    { date: '2025-03-01', starttime: '16:50', endtime: '17:00', session: 'X30 Junior Race 5 Heat 1' },
+    { date: '2025-03-01', starttime: '17:10', endtime: '17:20', session: 'X30 Senior Race 6 Heat 3 (A-C)' },
+    { date: '2025-03-01', starttime: '17:30', endtime: '17:40', session: 'X30 Senior Race 7 Heat 4 (B-D)' },
 
-        // Friday, 1 March 2025
-        { date: '2025-03-01', starttime: '08:00', endtime: '08:45', session: 'X30 SENIOR Sporting checks / Registration' },
-        { date: '2025-03-01', starttime: '08:45', endtime: '09:15', session: 'X30 JUNIOR Sporting checks / Registration' },
-        { date: '2025-03-01', starttime: '09:00', endtime: '09:30', session: 'IAME MINI Sporting checks / Registration' },
-        { date: '2025-03-01', starttime: '09:30', endtime: '10:00', session: 'IAME MINI ROOKIE Sporting checks / Registration' },
-        { date: '2025-03-01', starttime: '10:00', endtime: '10:15', session: 'X30 Senior Warm Up (Even numbers)' },
-        { date: '2025-03-01', starttime: '10:15', endtime: '10:30', session: 'X30 Senior Warm Up (Odd numbers)' },
-        { date: '2025-03-01', starttime: '10:30', endtime: '10:45', session: 'IAME Mini Warm Up' },
-        { date: '2025-03-01', starttime: '10:45', endtime: '11:00', session: 'IAME MINI ROOKIE Warm Up' },
-        { date: '2025-03-01', starttime: '11:00', endtime: '11:15', session: 'X30 Junior Warm Up' },
-        { date: '2025-03-01', starttime: '11:30', endtime: '11:45', session: 'X30 Senior Non Qualifying (Even numbers)' },
-        { date: '2025-03-01', starttime: '11:45', endtime: '12:00', session: 'X30 Senior Non Qualifying (Odd numbers)' },
-        { date: '2025-03-01', starttime: '12:00', endtime: '12:15', session: 'IAME Mini Non Qualifying' },
-        { date: '2025-03-01', starttime: '12:15', endtime: '12:30', session: 'IAME MINI ROOKIE Non Qualifying' },
-        { date: '2025-03-01', starttime: '12:30', endtime: '12:45', session: 'X30 Junior Non Qualifying' },
-        { date: '2025-03-01', starttime: '13:00', endtime: '13:05', session: 'X30 Senior Qualifying Group 1' },
-        { date: '2025-03-01', starttime: '13:15', endtime: '13:20', session: 'X30 Senior Qualifying Group 2' },
-        { date: '2025-03-01', starttime: '13:30', endtime: '13:36', session: 'IAME Mini Qualifying' },
-        { date: '2025-03-01', starttime: '13:45', endtime: '13:51', session: 'IAME MINI ROOKIE Qualifying' },
-        { date: '2025-03-01', starttime: '14:00', endtime: '14:05', session: 'X30 Junior Qualifying' },
-        { date: '2025-03-01', starttime: '15:30', endtime: '15:40', session: 'X30 Senior Race 1 Heat 1 (A-B)' },
-        { date: '2025-03-01', starttime: '15:50', endtime: '16:00', session: 'X30 Senior Race 2 Heat 2 (C-D)' },
-        { date: '2025-03-01', starttime: '16:10', endtime: '16:17', session: 'IAME Mini Race 3 Heat 1' },
-        { date: '2025-03-01', starttime: '16:30', endtime: '16:37', session: 'IAME MINI ROOKIE Race 4 Heat 1' },
-        { date: '2025-03-01', starttime: '16:50', endtime: '17:00', session: 'X30 Junior Race 5 Heat 1' },
-        { date: '2025-03-01', starttime: '17:10', endtime: '17:20', session: 'X30 Senior Race 6 Heat 3 (A-C)' },
-        { date: '2025-03-01', starttime: '17:30', endtime: '17:40', session: 'X30 Senior Race 7 Heat 4 (B-D)' },
+    // Saturday, 2 March 2025
+    { date: '2025-03-02', starttime: '09:00', endtime: '09:12', session: 'KA 100 Warm Up 145 & 155' },
+    { date: '2025-03-02', starttime: '09:15', endtime: '09:27', session: 'Honda 9PK Warm Up Junior & Senior' },
+    { date: '2025-03-02', starttime: '09:30', endtime: '09:42', session: 'IAME Mini Warm Up' },
+    { date: '2025-03-02', starttime: '09:45', endtime: '09:57', session: 'IAME MINI ROOKIE Warm Up' },
+    { date: '2025-03-02', starttime: '10:00', endtime: '10:12', session: 'X30 Junior Warm Up' },
+    { date: '2025-03-02', starttime: '10:15', endtime: '10:27', session: 'X30 Senior Warm Up Group A-D' },
+    { date: '2025-03-02', starttime: '10:30', endtime: '10:42', session: 'X30 Senior Warm Up Group B-C' },
+    { date: '2025-03-02', starttime: '10:45', endtime: '10:50', session: 'KA 100 Qualifying 145 & 155' },
+    { date: '2025-03-02', starttime: '11:00', endtime: '11:15', session: 'Honda 9PK Training' },
+    { date: '2025-03-02', starttime: '11:20', endtime: '11:27', session: 'IAME Mini Race 8 Heat 2' },
+    { date: '2025-03-02', starttime: '11:40', endtime: '11:47', session: 'IAME MINI ROOKIE Race 9 Heat 2' },
+    { date: '2025-03-02', starttime: '12:00', endtime: '12:10', session: 'X30 Junior Race 10 Heat 2' },
+    { date: '2025-03-02', starttime: '12:20', endtime: '12:30', session: 'X30 Senior Race 11 Heat 5 (A-D)' },
+    { date: '2025-03-02', starttime: '12:40', endtime: '12:50', session: 'X30 Senior Race 12 Heat 6 (B-C)' },
+    { date: '2025-03-02', starttime: '13:00', endtime: '13:10', session: 'KA 100 Race 13 Heat 1' },
+    { date: '2025-03-02', starttime: '13:20', endtime: '13:35', session: 'Honda 9PK Training' },
+    { date: '2025-03-02', starttime: '14:15', endtime: '14:25', session: 'IAME Mini Race 14 Final' },
+    { date: '2025-03-02', starttime: '14:40', endtime: '14:50', session: 'IAME MINI ROOKIE Race 15 Final' },
+    { date: '2025-03-02', starttime: '15:05', endtime: '15:15', session: 'KA 100 Race 16 Heat 2' },
+    { date: '2025-03-02', starttime: '15:30', endtime: '15:44', session: 'X30 Junior Race 17 Final' },
+    { date: '2025-03-02', starttime: '15:55', endtime: '16:09', session: 'X30 Senior Race 18 A-Final' },
+    { date: '2025-03-02', starttime: '16:20', endtime: '16:34', session: 'X30 Senior Race 19 B-Final' },
+    { date: '2025-03-02', starttime: '16:45', endtime: '16:59', session: 'KA 100 Race 20 Final' },
+    { date: '2025-03-02', starttime: '17:10', endtime: '17:50', session: 'Honda 9PK Race 21 Endurance' }
 
-        // Saturday, 2 March 2025
-        { date: '2025-03-02', starttime: '09:00', endtime: '09:12', session: 'KA 100 Warm Up 145 & 155' },
-        { date: '2025-03-02', starttime: '09:15', endtime: '09:27', session: 'Honda 9PK Warm Up Junior & Senior' },
-        { date: '2025-03-02', starttime: '09:30', endtime: '09:42', session: 'IAME Mini Warm Up' },
-        { date: '2025-03-02', starttime: '09:45', endtime: '09:57', session: 'IAME MINI ROOKIE Warm Up' },
-        { date: '2025-03-02', starttime: '10:00', endtime: '10:12', session: 'X30 Junior Warm Up' },
-        { date: '2025-03-02', starttime: '10:15', endtime: '10:27', session: 'X30 Senior Warm Up Group A-D' },
-        { date: '2025-03-02', starttime: '10:30', endtime: '10:42', session: 'X30 Senior Warm Up Group B-C' },
-        { date: '2025-03-02', starttime: '10:45', endtime: '10:50', session: 'KA 100 Qualifying 145 & 155' },
-        { date: '2025-03-02', starttime: '11:00', endtime: '11:15', session: 'Honda 9PK Training' },
-        { date: '2025-03-02', starttime: '11:20', endtime: '11:27', session: 'IAME Mini Race 8 Heat 2' },
-        { date: '2025-03-02', starttime: '11:40', endtime: '11:47', session: 'IAME MINI ROOKIE Race 9 Heat 2' },
-        { date: '2025-03-02', starttime: '12:00', endtime: '12:10', session: 'X30 Junior Race 10 Heat 2' },
-        { date: '2025-03-02', starttime: '12:20', endtime: '12:30', session: 'X30 Senior Race 11 Heat 5 (A-D)' },
-        { date: '2025-03-02', starttime: '12:40', endtime: '12:50', session: 'X30 Senior Race 12 Heat 6 (B-C)' },
-        { date: '2025-03-02', starttime: '13:00', endtime: '13:10', session: 'KA 100 Race 13 Heat 1' },
-        { date: '2025-03-02', starttime: '13:20', endtime: '13:35', session: 'Honda 9PK Training' },
-        { date: '2025-03-02', starttime: '14:15', endtime: '14:25', session: 'IAME Mini Race 14 Final' },
-        { date: '2025-03-02', starttime: '14:40', endtime: '14:50', session: 'IAME MINI ROOKIE Race 15 Final' },
-        { date: '2025-03-02', starttime: '15:05', endtime: '15:15', session: 'KA 100 Race 16 Heat 2' },
-        { date: '2025-03-02', starttime: '15:30', endtime: '15:44', session: 'X30 Junior Race 17 Final' },
-        { date: '2025-03-02', starttime: '15:55', endtime: '16:09', session: 'X30 Senior Race 18 A-Final' },
-        { date: '2025-03-02', starttime: '16:20', endtime: '16:34', session: 'X30 Senior Race 19 B-Final' },
-        { date: '2025-03-02', starttime: '16:45', endtime: '16:59', session: 'KA 100 Race 20 Final' },
-        { date: '2025-03-02', starttime: '17:10', endtime: '17:50', session: 'Honda 9PK Race 21 Endurance' }
+];
 
-    ];
+// Haal opgeslagen sessies op uit localStorage
+let savedSessions = JSON.parse(localStorage.getItem('sessions')) || [];
 
-    // Sla de sessies op in localStorage
-    localStorage.setItem('sessions', JSON.stringify(sessions));
-}
+// Combineer standaard sessies met opgeslagen sessies
+let sessions = [...defaultSessions];
 
+// Voeg alleen unieke opgeslagen sessies toe
+savedSessions.forEach(savedSession => {
+    const isDuplicate = sessions.some(defaultSession =>
+        defaultSession.date === savedSession.date &&
+        defaultSession.starttime === savedSession.starttime &&
+        defaultSession.endtime === savedSession.endtime &&
+        defaultSession.session === savedSession.session
+    );
+
+    if (!isDuplicate) {
+        sessions.push(savedSession);
+    }
+});
+
+// Sorteer alle sessies op datum en tijd
+sessions.sort((a, b) => {
+    const dateTimeA = new Date(`${a.date}T${a.starttime}`);
+    const dateTimeB = new Date(`${b.date}T${b.starttime}`);
+    return dateTimeA - dateTimeB;
+});
+
+// Declareer lastChosenDate één keer
 let lastChosenDate = localStorage.getItem('lastChosenDate') || '';
+
+// Functie om sessies op te slaan (alleen de niet-standaard sessies)
+function saveSessions() {
+    const sessionsToSave = sessions.filter(session =>
+        !defaultSessions.some(defaultSession =>
+            defaultSession.date === session.date &&
+            defaultSession.starttime === session.starttime &&
+            defaultSession.endtime === session.endtime &&
+            defaultSession.session === session.session
+        )
+    );
+
+    localStorage.setItem('sessions', JSON.stringify(sessionsToSave));
+}
 
 // Haal opgeslagen sessies op uit LocalStorage, of initialiseer een lege array
 function updateCountdown() {
@@ -303,8 +337,15 @@ function showEditModal(session, index) {
 
         if (updatedDate && updatedStarttime && updatedEndtime && updatedSession) {
             sessions[index] = { date: updatedDate, starttime: updatedStarttime, endtime: updatedEndtime, session: updatedSession };
+            // Sorteer de sessies opnieuw
+            sessions.sort((a, b) => {
+                const dateTimeA = new Date(`${a.date}T${a.starttime}`);
+                const dateTimeB = new Date(`${b.date}T${b.starttime}`);
+                return dateTimeA - dateTimeB;
+            });
             saveSessions(); // Sla de bijgewerkte sessies op
             populateTable(); // Bijwerken van de tabel
+            updateCountdown(); // Update de countdown
             closeEditModal(); // Sluit de bewerkingsmodal
         }
     };
@@ -355,9 +396,19 @@ document.getElementById('modal-form').onsubmit = function(event) {
     if (date && starttime && endtime && session) {
         sessions.push({ date, starttime, endtime, session });
         saveSessions();
-        lastChosenDate = date; // Sla de laatst gekozen datum op
-        localStorage.setItem('lastChosenDate', lastChosenDate); // Bewaar de laatst gekozen datum in localStorage
+        lastChosenDate = date;
+        localStorage.setItem('lastChosenDate', lastChosenDate);
+
+        // Sorteer de sessies op datum en tijd
+        sessions.sort((a, b) => {
+            const dateTimeA = new Date(`${a.date}T${a.starttime}`);
+            const dateTimeB = new Date(`${b.date}T${b.starttime}`);
+            return dateTimeA - dateTimeB;
+        });
+
+        // Update zowel de tabel als de countdown
         populateTable();
+        updateCountdown();
         closeModal();
     }
 };
@@ -423,7 +474,18 @@ document.getElementById('delete-sessions-button').onclick = showConfirmModal; //
 
 // Functie om sessies op te slaan in LocalStorage
 function saveSessions() {
-    localStorage.setItem('sessions', JSON.stringify(sessions));
+    // Filter de sessies die niet in defaultSessions voorkomen
+    const sessionsToSave = sessions.filter(session => {
+        return !defaultSessions.some(defaultSession =>
+            defaultSession.date === session.date &&
+            defaultSession.starttime === session.starttime &&
+            defaultSession.endtime === session.endtime &&
+            defaultSession.session === session.session
+        );
+    });
+
+    // Sla alleen de niet-standaard sessies op
+    localStorage.setItem('sessions', JSON.stringify(sessionsToSave));
 }
 
 // Functie om de bevestigingsmodal voor alle sessies te tonen
@@ -455,13 +517,13 @@ function showDeleteConfirmModal(session, row) {
         const index = sessions.findIndex(s => s.date === session.date && s.starttime === session.starttime && s.session === session.session);
         if (index > -1) {
             sessions.splice(index, 1);
-            saveSessions(); // Opslaan van bijgewerkte sessies
-            populateTable(); // Bijwerken van de tabel
+            saveSessions();
+            populateTable();
+            updateCountdown(); // Update de countdown
         }
-        closeDeleteConfirmModal(); // Sluit de bevestigingsmodal
+        closeDeleteConfirmModal();
     };
 
-    // Zorg ervoor dat de sluitknop van de delete-modal correct is ingesteld
     document.getElementById('confirm-delete-no').onclick = closeDeleteConfirmModal;
     document.getElementById('confirm-modal-close-session').onclick = closeDeleteConfirmModal;
 }
