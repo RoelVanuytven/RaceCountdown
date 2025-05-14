@@ -4,39 +4,39 @@ const defaultSessions = [
     { date: '2025-05-16', starttime: '13:00', endtime: '18:00', session: 'Belcar Endurance Championship (scrutineering -> garages)' },
     { date: '2025-05-16', starttime: '13:00', endtime: '18:00', session: 'Belcar Historic Cup' },
     { date: '2025-05-16', starttime: '13:00', endtime: '18:00', session: 'Belcar Skylimit Sprint Cup (Administration - Loge Skylimit Events)' },
-    { date: '2025-05-16', starttime: '13:00', endtime: '18:00', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup' },
+    { date: '2025-05-16', starttime: '13:00', endtime: '18:00', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux' },
     { date: '2025-05-16', starttime: '18:15', endtime: '19:15', session: 'TBC  Belcar Endurance Championship (team managers briefing)' },
 
-// Saturday, 17 May 2025
+    // Saturday, 17 May 2025
     { date: '2025-05-17', starttime: '08:00', endtime: '08:30', session: 'Belcar Endurance Championship Administration & Scrutineering' },
     { date: '2025-05-17', starttime: '08:30', endtime: '09:00', session: 'Belcar Skylimit Sprint Cup Administration' },
     { date: '2025-05-17', starttime: '08:00', endtime: '12:00', session: 'Belcar Historic Cup Administration & Scrutineering' },
-    { date: '2025-05-17', starttime: '08:30', endtime: '09:00', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Briefing' },
-    { date: '2025-05-17', starttime: '09:30', endtime: '10:00', session: 'Belcar Endurance Championship Briefing' },
+    { date: '2025-05-17', starttime: '08:30', endtime: '09:00', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Briefing' },
+    { date: '2025-05-17', starttime: '09:10', endtime: '09:20', session: 'Belcar Endurance Championship Sign-On' },
+    { date: '2025-05-17', starttime: '09:20', endtime: '09:30', session: 'Belcar Endurance Championship Briefing' },
     { date: '2025-05-17', starttime: '12:00', endtime: '12:30', session: 'Belcar Skylimit Sprint Cup Briefing' },
     { date: '2025-05-17', starttime: '13:00', endtime: '13:30', session: 'Belcar Historic Cup Briefing' },
     { date: '2025-05-17', starttime: '09:10', endtime: '09:30', session: 'Belcar Historic Cup Exercise FCY' },
-    { date: '2025-05-17', starttime: '09:45', endtime: '10:15', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Free Practice 1 (30 min)' },
+    { date: '2025-05-17', starttime: '09:45', endtime: '10:15', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Free Practice 1 (30 min)' },
     { date: '2025-05-17', starttime: '10:30', endtime: '11:15', session: 'Belcar Endurance Championship Pre-qualifying practice (45 min)' },
-    { date: '2025-05-17', starttime: '11:25', endtime: '11:55', session: 'Mazda MX5 Cup Free Practice 2 (30 min)' },
+    { date: '2025-05-17', starttime: '11:25', endtime: '11:55', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Free Practice 2 (30 min)' },
     { date: '2025-05-17', starttime: '13:10', endtime: '13:40', session: 'Belcar Skylimit Sprint Cup Qualifying 1 (30 min)' },
-    { date: '2025-05-17', starttime: '13:50', endtime: '14:10', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Qualifying (20 min)' },
+    { date: '2025-05-17', starttime: '13:50', endtime: '14:10', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Qualifying (20 min)' },
     { date: '2025-05-17', starttime: '14:20', endtime: '15:05', session: 'Belcar Endurance Championship Qualifying (45 min)' },
     { date: '2025-05-17', starttime: '15:25', endtime: '15:55', session: 'Belcar Historic Cup Qualifying (30 min)' },
     { date: '2025-05-17', starttime: '16:05', endtime: '16:35', session: 'Belcar Skylimit Sprint Cup Qualifying 2 (30 min)' },
-    { date: '2025-05-17', starttime: '16:50', endtime: '17:15', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Race 1 (25 min)' },
+    { date: '2025-05-17', starttime: '16:50', endtime: '17:15', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Race 1 (25 min)' },
     { date: '2025-05-17', starttime: '17:30', endtime: '17:50', session: 'Belcar Endurance Championship Group Picture (obligatory for all teams)' },
 
-// Sunday, 18 May 2025
-    { date: '2025-05-18', starttime: '10:15', endtime: '10:40', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Race 2 (25 min)' },
+    // Sunday, 18 May 2025
+    { date: '2025-05-18', starttime: '10:15', endtime: '10:40', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Race 2 (25 min)' },
     { date: '2025-05-18', starttime: '10:55', endtime: '11:25', session: 'Belcar Historic Cup Race 1 (30 min)' },
     { date: '2025-05-18', starttime: '11:40', endtime: '12:10', session: 'Belcar Skylimit Sprint Cup Race 1 (30 min)' },
     { date: '2025-05-18', starttime: '12:25', endtime: '12:55', session: 'Belcar Endurance Championship Gridwalk (30 min)' },
     { date: '2025-05-18', starttime: '13:15', endtime: '15:20', session: 'Belcar Endurance Championship Race (125 min)' },
-    { date: '2025-05-18', starttime: '15:35', endtime: '16:00', session: 'Mazda MX5 Cup & Ford Fiesta Sprint Cup Race 3 (25 min)' },
+    { date: '2025-05-18', starttime: '15:35', endtime: '16:00', session: 'Mazda MX-5 Cup & Ford Fiesta Sprint Cup Benelux Race 3 (25 min)' },
     { date: '2025-05-18', starttime: '16:15', endtime: '16:45', session: 'Belcar Historic Cup Race 2 (30 min)' },
     { date: '2025-05-18', starttime: '17:00', endtime: '17:30', session: 'Belcar Skylimit Sprint Cup Race 2 (30 min)' },
-
 ];
 
 // Haal opgeslagen sessies op uit localStorage
