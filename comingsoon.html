@@ -3,164 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coming Soon - Racebaron</title>
-    <link rel="stylesheet" href="RaceStyle.css">
+    <title>Race Tools</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-<nav class="navigation">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="comingsoon.html" class="active">Coming Soon</a></li>
-    </ul>
+<body class="bg-black text-yellow-400 font-sans">
+
+<!-- Navigatie -->
+<nav class="bg-red-800 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="text-white font-bold text-xl">Racebaron</div>
+        <ul class="flex space-x-6 text-sm">
+            <li><a href="index.html" class="hover:underline">Home</a></li>
+            <li><a href="comingsoon.html" class="font-semibold underline text-yellow-300">Coming Soon</a></li>
+        </ul>
+    </div>
 </nav>
 
-<div class="coming-soon-container">
-    <div class="welcome-section">
-        <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Racebaron Logo" class="main-logo">
-        <p>Welcome to the Racebaron tools website where in a few months you can find tools to make life easier for race teams.</p>
+<!-- Intro -->
+<div class="max-w-7xl mx-auto px-4 py-8">
+    <div class="text-center mb-12">
+        <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Racebaron Logo" class="mx-auto w-32 mb-6 rounded-full">
+        <p class="text-lg">Welcome to the Racebaron tools website where in a few months you can find tools to make life easier for race teams.</p>
     </div>
 
-    <div class="tools-grid">
-        <!-- Available Tools -->
-        <div class="tool-card">
-            <img src="Events.JPG" alt="Schema Tool" class="tool-image" data-modal-image>
-            <h2>Schema</h2>
-            <p>Display various sessions linked to events, with the option to filter by event, class, etc.</p>
-            <a href="index.html" class="status available">Available</a>
-        </div>
-        <div class="tool-card">
-            <img src="FCY%20Calculator.JPG" alt="FCY/SC Calculator" class="tool-image" data-modal-image>
-            <h2>FCY/SC Calculator</h2>
-            <p>Calculate potential advantages of a pitstop during a Full Course Yellow or Safety Car period.</p>
-            <span class="status coming-soon">Under Construction</span>
-        </div>
-        <div class="tool-card">
-            <img src="Regulations.JPG" alt="Regulations" class="tool-image" data-modal-image>
-            <h2>Regulations</h2>
-            <p>Find a summary of the regulations per category with links to the full regulation texts.</p>
-            <span class="status coming-soon">Under Construction</span>
+    <!-- Tools Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Begin tools (volledige lijst zoals je vroeg) -->
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="1.JPG" alt="Events" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Events</h2>
+            <p class="text-sm">Display various sessions linked to events, with the option to filter by event, class, etc.</p>
+            <a href="index.html" class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-green-500 text-white rounded">Available</a>
         </div>
 
-        <!-- Repeat for all other tool cards, replacing onclick with data-modal-image -->
-        <!-- Example of one more card, repeat this pattern for all others -->
-        <div class="tool-card">
-            <img src="Edit%20Raceteams.JPG" alt="Race Teams" class="tool-image" data-modal-image>
-            <h2>Raceteams</h2>
-            <p>See the info of race teams.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="15.JPG" alt="FCY/SC Calculator" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">FCY/SC Calculator</h2>
+            <p class="text-sm">Calculate potential advantages of a pitstop during a Full Course Yellow or Safety Car period.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <!-- Continue with all other cards following the same pattern -->
-        <!-- Under Construction Tools -->
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Session Planner" class="tool-image" data-modal-image>
-            <h2>Session Planner</h2>
-            <p>Organize a session by goal, driver, fuel, and pitstops.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="22.jpg" alt="Regulations" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Regulations</h2>
+            <p class="text-sm">Find a summary of the regulations per category with links to the full regulation texts.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Crew Planner" class="tool-image" data-modal-image>
-            <h2>Crew Planner</h2>
-            <p>Distribute tasks during a pitstop among the crew.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="17.JPG" alt="Raceteams" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Raceteams</h2>
+            <p class="text-sm">See the info of race teams.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Strategy" class="tool-image" data-modal-image>
-            <h2>Strategy</h2>
-            <p>Analyze strategic possibilities in a race based on available data.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="10a.png" alt="Drivers" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Drivers</h2>
+            <p class="text-sm">Find information about the drivers.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Laptimes/Fuel" class="tool-image" data-modal-image>
-            <h2>Laptimes/Fuel</h2>
-            <p>Enter laptimes to estimate fuel levels based on fuel consumption.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="11.png" alt="Setup" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Setup</h2>
+            <p class="text-sm">Save and search your setups.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Points" class="tool-image" data-modal-image>
-            <h2>Points</h2>
-            <p>Estimate points based on the current position in the event.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="13.png" alt="Race planner" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Race planner</h2>
+            <p class="text-sm">Organise stints and pitstops.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Race Analysis" class="tool-image" data-modal-image>
-            <h2>Race Analysis</h2>
-            <p>Generate an analysis of a past event.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="14.png" alt="Fuel Estimator" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Fuel Estimator</h2>
+            <p class="text-sm">Estimate fuel based on laptimes.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Setup" class="tool-image" data-modal-image>
-            <h2>Setup</h2>
-            <p>Track setups over time with notes.</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="12.png" alt="Session Planner" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Session Planner</h2>
+            <p class="text-sm">Organize a session by goal, driver, fuel, and pitstops.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
 
-
-
-        <div class="tool-card">
-            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Tire Pressures" class="tool-image" data-modal-image>
-            <h2>Tire Pressures</h2>
-            <p>Calculate tyre pressures based on race track, driver, temperatures,...</p>
-            <span class="status coming-soon">Under Construction</span>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="16a.png" alt="Tasks" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Tasks</h2>
+            <p class="text-sm">Distribute tasks during a pitstop among the crew.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
         </div>
-    </div>
-</div>
 
-<!-- Image Modal -->
-<div id="imageModal" class="image-modal">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <img id="modalImage" src="" alt="Modal Image">
-    </div>
-</div>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="18.png" alt="Race Analysis" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Race Analysis</h2>
+            <p class="text-sm">Generate an analysis of a past event.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
+        </div>
 
-<div class="footer">
-    <div class="footer-powered">
-        Powered by <a href="https://www.drankbaron.be" target="_blank" rel="noopener noreferrer">drankbaron.be</a>
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="19.png" alt="Tire pressures" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Tire pressures</h2>
+            <p class="text-sm">Calculate tyre pressures based on race track, driver, temperatures,...</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
+        </div>
+
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="20.png" alt="Strategy Planner" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Strategy Planner</h2>
+            <p class="text-sm">Create a planning for races,...</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
+        </div>
+
+        <div class="bg-red-700 rounded-2xl shadow-md p-4">
+            <img src="temp_image_16105018-71e3-4d43-bea7-af6380974a56.png.jpg" alt="Points" class="rounded-xl w-full h-40 object-cover cursor-pointer modal-trigger">
+            <h2 class="mt-3 text-lg font-bold">Points</h2>
+            <p class="text-sm">Estimate points based on the current position in the event.</p>
+            <button class="inline-block mt-2 px-3 py-1 text-xs font-semibold bg-yellow-500 text-black rounded modal-trigger">Under Construction</button>
+        </div>
     </div>
 </div>
 
+<!-- Modal -->
+<div id="imageModal" class="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center hidden">
+    <div class="bg-red-800 p-6 rounded-2xl shadow-xl relative w-full max-w-3xl">
+        <span id="closeModal" class="absolute top-3 right-4 text-yellow-200 text-3xl cursor-pointer hover:text-yellow-100">&times;</span>
+        <img id="modalImage" src="" alt="Preview" class="w-full rounded-xl border-2 border-yellow-600 shadow-lg">
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-red-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 py-4 text-sm text-yellow-300 text-center">
+        Powered by <a href="https://www.drankbaron.be" target="_blank" rel="noopener noreferrer" class="underline hover:text-yellow-100">drankbaron.be</a>
+    </div>
+</footer>
+
+<!-- JS: Modal open/close -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Get modal elements
+    document.addEventListener('DOMContentLoaded', function () {
         const modal = document.getElementById('imageModal');
         const modalImg = document.getElementById('modalImage');
-        const closeBtn = document.querySelector('.close-modal');
+        const closeBtn = document.getElementById('closeModal');
+        const triggers = document.querySelectorAll('.modal-trigger');
 
-        // Get all images with data-modal-image attribute
-        const images = document.querySelectorAll('[data-modal-image]');
-
-        // Add click event to all images
-        images.forEach(img => {
-            img.addEventListener('click', function() {
-                modal.style.display = 'block';
-                modalImg.src = this.src;
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function () {
+                const image = this.src;
+                modalImg.src = image;
+                modal.classList.remove('hidden');
             });
         });
 
-        // Close modal when clicking the close button
-        closeBtn.addEventListener('click', function() {
-            modal.style.display = 'none';
+        closeBtn.addEventListener('click', function () {
+            modal.classList.add('hidden');
         });
 
-        // Close modal when clicking outside the image
-        window.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
+        window.addEventListener('click', function (e) {
+            if (e.target === modal) modal.classList.add('hidden');
         });
 
-        // Close modal with escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && modal.style.display === 'block') {
-                modal.style.display = 'none';
-            }
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') modal.classList.add('hidden');
         });
     });
 </script>
