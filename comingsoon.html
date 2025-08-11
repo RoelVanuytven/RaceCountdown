@@ -130,10 +130,21 @@
 </div>
 
 <!-- Modal -->
-<div id="imageModal" class="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center hidden">
-    <div class="bg-red-800 p-6 rounded-2xl shadow-xl relative w-full max-w-8xl">
-        <span id="closeModal" class="absolute top-3 right-4 text-yellow-200 text-3xl cursor-pointer hover:text-yellow-100">&times;</span>
-        <img id="modalImage" src="" alt="Preview" class="w-full rounded-xl border-2 border-yellow-600 shadow-lg">
+<div id="imageModal" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center hidden">
+    <!-- vaste close-knop rechtsboven in viewport -->
+    <button id="closeModal"
+            class="fixed top-4 right-4 z-[60] bg-red-700 text-yellow-200 rounded-full w-10 h-10
+                   flex items-center justify-center text-2xl leading-none shadow hover:text-yellow-100"
+            aria-label="Sluiten">
+        &times;
+    </button>
+
+    <!-- inhoud -->
+    <div class="relative bg-red-800 p-4 sm:p-6 rounded-2xl shadow-xl w-auto max-w-[90vw] z-[55]">
+        <img id="modalImage"
+             src=""
+             alt="Preview"
+             class="max-w-[86vw] max-h-[80vh] w-auto h-auto object-contain rounded-xl border-2 border-yellow-600 shadow-lg mx-auto">
     </div>
 </div>
 
@@ -152,25 +163,29 @@
         const closeBtn = document.getElementById('closeModal');
         const triggers = document.querySelectorAll('.modal-trigger');
 
+        // Klik op tegel-afbeelding of op "Under Construction" knop
         triggers.forEach(trigger => {
             trigger.addEventListener('click', function () {
-                const image = this.src;
-                modalImg.src = image;
+                let imageSrc = null;
+
+                if (this.tagName.toLowerCase() === 'img') {
+                    imageSrc = this.src;
+                } else {
+                    const card = this.closest('.bg-red-700');
+                    const cardImg = card ? card.querySelector('img') : null;
+                    imageSrc = cardImg ? cardImg.src : null;
+                }
+
+                if (!imageSrc) return; // safety
+                modalImg.src = imageSrc;
                 modal.classList.remove('hidden');
             });
         });
 
-        closeBtn.addEventListener('click', function () {
-            modal.classList.add('hidden');
-        });
-
-        window.addEventListener('click', function (e) {
-            if (e.target === modal) modal.classList.add('hidden');
-        });
-
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') modal.classList.add('hidden');
-        });
+        // Sluiten
+        closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+        window.addEventListener('click', (e) => { if (e.target === modal) modal.classList.add('hidden'); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.add('hidden'); });
     });
 </script>
 </body>
