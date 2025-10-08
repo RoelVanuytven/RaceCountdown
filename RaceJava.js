@@ -1,46 +1,55 @@
 // Definieer de standaard sessies
 const defaultSessions = [
-    // Wednesday, 27 August 2025
-    { date: '2025-08-27', starttime: '09:00', endtime: '13:00', session: 'Belcar Endurance Championship - Scrutineering (Garages)' },
-    { date: '2025-08-27', starttime: '12:00', endtime: '14:00', session: 'Track Walk (drivers)' },
-    { date: '2025-08-27', starttime: '15:05', endtime: '15:25', session: 'Group Picture on track (Belcar Endurance Championship)' },
-    { date: '2025-08-27', starttime: '15:30', endtime: '19:00', session: 'Parade Belcar 24 Hours to Heldenplein Heusden-Zolder' },
-    { date: '2025-08-27', starttime: '16:00', endtime: '19:00', session: 'Administration Belcar Endurance Championship - Town Hall' },
-    { date: '2025-08-27', starttime: '16:30', endtime: '16:45', session: 'Briefing Team Managers - Belcar Endurance Championship' },
-    { date: '2025-08-27', starttime: '17:15', endtime: '17:45', session: 'Briefing Drivers Group 1 (Super Sport, Club Sport & Challenge)' },
-    { date: '2025-08-27', starttime: '18:00', endtime: '18:30', session: 'Briefing Drivers Group 2 (GT Cup & GT Sport)' },
+    // THURSDAY, 09 October 2025
+    { date: '2025-10-09', starttime: '09:05', endtime: '11:20', session: 'Practices (payable) – All (€330 per car)' },
+    { date: '2025-10-09', starttime: '10:30', endtime: '10:45', session: 'Briefing – EuroNASCAR Club Challenge' },
+    { date: '2025-10-09', starttime: '11:25', endtime: '11:55', session: 'EuroNASCAR Club Challenge – Session 1' },
+    { date: '2025-10-09', starttime: '12:00', endtime: '13:00', session: 'Lunchbreak' },
+    { date: '2025-10-09', starttime: '13:05', endtime: '13:35', session: 'EuroNASCAR Club Challenge – Session 2' },
+    { date: '2025-10-09', starttime: '13:45', endtime: '15:00', session: 'Practices (payable) – All (€195 per car)' },
+    { date: '2025-10-09', starttime: '15:05', endtime: '15:35', session: 'EuroNASCAR Club Challenge – Session 3' },
+    { date: '2025-10-09', starttime: '15:40', endtime: '16:55', session: 'Practices (payable) – All (€195 per car)' },
+    // Departure time was listed without an end time; main parade window below covers it
+    { date: '2025-10-09', starttime: '17:00', endtime: '18:30', session: 'Parade – Heldenplein Heusden-Zolder: Inspections & Autographs (EuroNASCAR PRO & OPEN)' },
 
-    // Thursday, 28 August 2025
-    { date: '2025-08-28', starttime: '09:00', endtime: '10:30', session: 'Belcar Skylimit Sprint Cup - Administration & Scrutineering' },
-    { date: '2025-08-28', starttime: '09:00', endtime: '09:30', session: 'Briefing Belcar Skylimit Sprint Cup' },
-    { date: '2025-08-28', starttime: '09:15', endtime: '10:55', session: 'Belcar Endurance Championship - Non qualifying practice 1' },
-    { date: '2025-08-28', starttime: '11:10', endtime: '11:40', session: 'Belcar Skylimit Sprint Cup - Free Practice' },
-    { date: '2025-08-28', starttime: '13:05', endtime: '14:20', session: 'Belcar Endurance Championship - Non qualifying practice 2' },
-    { date: '2025-08-28', starttime: '14:30', endtime: '15:10', session: 'Petrolhead Thursday - VIP Laps' },
-    { date: '2025-08-28', starttime: '15:15', endtime: '15:45', session: 'Belcar Skylimit Sprint Cup - Qualifying 1' },
-    { date: '2025-08-28', starttime: '15:55', endtime: '17:10', session: 'Belcar Endurance Championship - Qualifying' },
-    { date: '2025-08-28', starttime: '17:15', endtime: '18:15', session: 'Petrolhead Thursday - VIP Laps' },
-    { date: '2025-08-28', starttime: '18:20', endtime: '18:50', session: 'Belcar Skylimit Sprint Cup - Qualifying 2' },
-    { date: '2025-08-28', starttime: '19:00', endtime: '19:40', session: 'Petrolhead Thursday - VIP Laps' },
-    { date: '2025-08-28', starttime: '19:45', endtime: '20:50', session: 'Belcar Endurance Championship - Superpole' },
-    { date: '2025-08-28', starttime: '21:00', endtime: '22:00', session: 'Petrolhead Thursday - VIP Laps' },
-    { date: '2025-08-28', starttime: '22:10', endtime: '23:50', session: 'Belcar Endurance Championship - Night Testing' },
+    // FRIDAY, 10 October 2025
+    { date: '2025-10-10', starttime: '11:45', endtime: '12:15', session: 'Briefing – EuroNASCAR PRO & 2 (drivers, managers, spotters)' },
+    { date: '2025-10-10', starttime: '14:05', endtime: '14:35', session: 'EuroNASCAR PRO – Free Practice 1 (30\')' },
+    { date: '2025-10-10', starttime: '14:45', endtime: '15:15', session: 'EuroNASCAR OPEN – Free Practice 1 (30\')' },
+    { date: '2025-10-10', starttime: '15:25', endtime: '15:55', session: 'BEC & BSSC – Paying Practice (30\')' },
+    { date: '2025-10-10', starttime: '16:00', endtime: '18:00', session: 'Administration/Scrutineering – Belcar Endurance Championship' },
+    { date: '2025-10-10', starttime: '16:00', endtime: '18:00', session: 'Administration/Scrutineering – Belcar Skylimit Sprint Cup' },
+    { date: '2025-10-10', starttime: '16:05', endtime: '16:35', session: 'EuroNASCAR PRO – Free Practice 2 (30\')' },
+    { date: '2025-10-10', starttime: '16:45', endtime: '17:15', session: 'EuroNASCAR OPEN – Free Practice 2 (30\')' },
+    { date: '2025-10-10', starttime: '17:25', endtime: '17:55', session: 'BEC & BSSC – Paying Practice (30\')' },
 
-    // Friday, 29 August 2025
-    { date: '2025-08-29', starttime: '12:00', endtime: '14:00', session: 'Track Walk (drivers)' },
+    // SATURDAY, 11 October 2025
+    { date: '2025-10-11', starttime: '08:00', endtime: '08:30', session: 'Briefing – Belcar Endurance Championship' },
+    { date: '2025-10-11', starttime: '09:00', endtime: '09:30', session: 'Briefing – Belcar Skylimit Sprint Cup' },
+    { date: '2025-10-11', starttime: '09:05', endtime: '09:50', session: 'Belcar Endurance Championship – Non-Qualifying Practice (45\')' },
+    { date: '2025-10-11', starttime: '10:00', endtime: '10:10', session: 'EuroNASCAR PRO – Qualifying G1 (10\')' },
+    { date: '2025-10-11', starttime: '10:15', endtime: '10:25', session: 'EuroNASCAR PRO – Qualifying G2 (10\')' },
+    { date: '2025-10-11', starttime: '10:30', endtime: '10:35', session: 'EuroNASCAR PRO – Superpole (5\')' },
+    { date: '2025-10-11', starttime: '10:45', endtime: '10:55', session: 'EuroNASCAR OPEN – Qualifying G1 (10\')' },
+    { date: '2025-10-11', starttime: '11:00', endtime: '11:10', session: 'EuroNASCAR OPEN – Qualifying G2 (15\')' }, // tijdsindicatie (15’) komt uit pdf
+    { date: '2025-10-11', starttime: '11:25', endtime: '11:55', session: 'Belcar Skylimit Sprint Cup – Qualifying 1 (30\')' },
+    { date: '2025-10-11', starttime: '13:20', endtime: '13:40', session: 'Gridwalk (20\')' },
+    { date: '2025-10-11', starttime: '14:00', endtime: '14:45', session: 'EuroNASCAR PRO – Race 1 (75 km)' },
+    { date: '2025-10-11', starttime: '15:00', endtime: '15:45', session: 'Belcar Endurance Championship – Qualifying (45\')' },
+    { date: '2025-10-11', starttime: '16:00', endtime: '16:30', session: 'Belcar Skylimit Sprint Cup – Qualifying 2 (30\')' },
+    { date: '2025-10-11', starttime: '16:55', endtime: '17:35', session: 'EuroNASCAR OPEN – Race 1 (60 km)' },
+    { date: '2025-10-11', starttime: '17:40', endtime: '17:55', session: 'American army vehicles (15\')' },
 
-    // Saturday, 30 August 2025
-    { date: '2025-08-30', starttime: '08:00', endtime: '08:50', session: 'Pitwalk (All teams open doors)' },
-    { date: '2025-08-30', starttime: '09:20', endtime: '09:50', session: 'DLP - VIP Laps' },
-    { date: '2025-08-30', starttime: '10:10', endtime: '10:40', session: 'Belcar Skylimit Sprint Cup - Race 1' },
-    { date: '2025-08-30', starttime: '10:50', endtime: '11:20', session: 'Belcar Endurance Championship - Warm-up' },
-    { date: '2025-08-30', starttime: '11:30', endtime: '12:00', session: 'VIP Laps CZ' },
-    { date: '2025-08-30', starttime: '12:20', endtime: '12:50', session: 'DLP - VIP Laps' },
-    { date: '2025-08-30', starttime: '13:10', endtime: '13:40', session: 'Belcar Skylimit Sprint Cup - Race 2' },
-    { date: '2025-08-30', starttime: '14:15', endtime: '15:30', session: 'Belcar Endurance Championship - Grid Walk' },
-    { date: '2025-08-30', starttime: '16:00', endtime: '2025-08-31T16:00', session: 'Belcar Endurance Championship - 24H Race' },
-    // Sunday, 31 August 2025
-    { date: '2025-08-31', starttime: '16:00', endtime: '16:30', session: 'Belcar Endurance Championship - Arrival' }
+    // SUNDAY, 12 October 2025
+    { date: '2025-10-12', starttime: '09:00', endtime: '09:45', session: 'Pitwalk (45\')' },
+    { date: '2025-10-12', starttime: '10:05', endtime: '10:15', session: 'EuroNASCAR PRO & OPEN – Warm-up (10\')' },
+    { date: '2025-10-12', starttime: '10:30', endtime: '11:00', session: 'Belcar Skylimit Sprint Cup – Race 1 (30\')' },
+    { date: '2025-10-12', starttime: '11:30', endtime: '12:10', session: 'EuroNASCAR OPEN – Race 2 (60 km)' },
+    { date: '2025-10-12', starttime: '12:40', endtime: '14:45', session: 'Belcar Endurance Championship – Race (125\')' },
+    { date: '2025-10-12', starttime: '15:15', endtime: '15:30', session: 'Gridwalk (20\')' },
+    { date: '2025-10-12', starttime: '15:45', endtime: '16:30', session: 'EuroNASCAR PRO – Race 2 (75 km)' },
+    { date: '2025-10-12', starttime: '17:00', endtime: '17:30', session: 'Belcar Skylimit Sprint Cup – Race 2 (30\')' },
+    { date: '2025-10-12', starttime: '17:40', endtime: '17:55', session: 'American army vehicles (15\')' }
 ];
 
 
